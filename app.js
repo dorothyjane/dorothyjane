@@ -7,24 +7,24 @@ var app = express();
 
 // app.use happens on all requests
 app.use(function(request, response, next){
-  console.log(request.method + '  ' + request.url);
+  // console.log(request.method + '  ' + request.url);
   next();
 });
-/*
-app.get('/me', function(req, res, next){
-  console.log("They have asekd for me.");
+
+app.get('/', function(req, res, next){
+  // console.log("They have asekd for me.");
   next();
 }, function(request, response, next){
 
   // interally writehead, write, end.. express has wrapped it up for us
-  response.status(200).send("</h1> It's all about ME</h1>");
+  response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
 });
 
 app.get('/person/:name', function(req, res, next){
   var myname = req.params.name;
   res.status(200).send("Hello " + myname);
 });
-*/
+
 var getPeopleData = function (req, res, next) {
   req.people = people; // really i'd to some database etc.
   next();
