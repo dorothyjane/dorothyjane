@@ -1,57 +1,59 @@
 var url = require('url');
 var express = require('express'); // takes care of http
-var people = require('./people.json');
 var _ = require('underscore');
 var app = express();
+var fs = require('fs');
 
 
-// app.use happens on all requests
-app.use(function(request, response, next){
-  // console.log(request.method + '  ' + request.url);
-  next();
-});
+// use jade, similar to haml but compiled with javascript ;)
+app.set('view engine', 'jade');
 
-app.get('/', function(req, res, next){
-  // console.log("They have asekd for me.");
-  next();
-}, function(request, response, next){
 
+
+
+// check for sesssion if go to place where need session
+app.all('/admin/*', function(req, res, next){
+  console.log(req.session);
+  if(!req.session.admin){
+    res.redirect('/login');
+  } else {
+    next();
+  }
+})
+
+
+
+// homepage
+app.get('/', function(request, response, next){
   // interally writehead, write, end.. express has wrapped it up for us
-  response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
+  //response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
+  response.render('index', {
+      title: 'dorothy jane wingrove',
+      subtitle: 'something about me',
+      links: {
+        twitter: "https://twitter.com/_dorothyjane",
+        instagram: "http://instagram.com/dottiejane/",
+        google: "https://plus.google.com/u/0/117368907696249336489/about"
+      }
+    });
 });
 
-app.get('/person/:name', function(req, res, next){
-  var myname = req.params.name;
-  res.status(200).send("Hello " + myname);
-});
-
-var getPeopleData = function (req, res, next) {
-  req.people = people; // really i'd to some database etc.
-  next();
-}
-
-var sendPeopleData = function(req, res, next){
-  res.json(req.people);
-}
-
-var locationFilter = function (req, res, next) {
-  // var query = url.parse(req.url).query; //url gives is an object
-  var query = req.query.location;
-  if(!query) { return next(); }
-
-  req.people = _.filter(req.people, function(obj, index){
-    return obj.location === query;
-  });
-  console.log(query);
-  next();
-}
-
-app.get('/people', getPeopleData, locationFilter, sendPeopleData);
-
+// static folder directory (telling the browser where to look)
+app.use(express.static(__dirname + '/assets'));
 
 // * is any url... in order so this must happen last, above routes are fine
 app.get('*', function(request, response, next){
   response.send(404, "NOT FOUND!!!!!!!!!!!");
 })
 
-app.listen(process.env.PORT);
+// <3 <3 <3 <3
+// <3  GO!! <3
+// <3 <3 <3 <3
+
+connection.connect(function(error){
+  if(error){ throw error; }
+  var port = process.env.PORT || 8080; // carefull this will work on 0 !!!!
+  console.log("listening on port:  " + port);
+  app.listen(port);
+});
+

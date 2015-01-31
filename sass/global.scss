@@ -1,0 +1,30 @@
+h1 {
+  font-family: "Stalemate", sans-serif;
+  line-height: 1.6;
+}
+
+h2, h3, p {
+  font-family: droid-sans, sans-serif;
+}
+
+body {
+  background: $blue-lightest
+}
+
+h1 {
+  font-size: 100px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol {
+  li {
+    list-style: none;
+  }
+}

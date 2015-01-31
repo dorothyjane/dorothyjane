@@ -1,0 +1,25 @@
+extends ./layout.jade
+
+block content
+  #index.center-text.full-height
+    .central
+      .mini-central
+        h1= title
+        h2= subtitle
+        .social-links
+          each link, name in links
+            a(href=link)
+              i.fa.fa-4x(class="fa-#{name}")
+
+
+
+  script.
+    function heightChange(){
+      var height = window.innerHeight;
+      console.log(height);
+      document.getElementById('index').setAttribute("style","height:" +height+"px");
+    }
+
+    window.onload = heightChange;
+
+    window.onresize = heightChange;

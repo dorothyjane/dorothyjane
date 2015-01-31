@@ -1,0 +1,152 @@
+// mixins
+
+// =================
+// = media screens =
+// =================
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+// ===========================
+// = animations n keyframes =
+// ===========================
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// ===============
+// = transitions =
+// ===============
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// ==========
+// = styles =
+// ==========
+@mixin roundcorners($radius: 4px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//roundtopcorners
+@mixin roundtopcorners($radius: 4px) {
+  -moz-border-radius-topleft: $radius;
+  -moz-border-radius-topright: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+}
+
+@mixin box-shadow($top: 1px, $right: 2px, $bottom: 5px, $left: 2px) {
+  -webkit-box-shadow: $top $right $bottom $left rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: $top $right $bottom $left rgba(0, 0, 0, 0.09);
+  box-shadow: $top $right $bottom $left rgba(0, 0, 0, 0.09);
+}
+
+@mixin fontFace($family, $src, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url("#{$src}.eot");
+    src: url("#{$src}.eot?#iefix") format("embedded-opentype"), url("#{$src}.woff") format("woff"), url("#{$src}.ttf") format("truetype"), url("#{$src}.svg##{$family}") format("svg");
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+// =========
+// = fonts =
+// =========
+@include fontFace("MyFont", "../fonts/leaguegothic-regular-webfont");
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Stalemate|Yanone+Kaffeesatz:400,700,300,200");
+
+// ==========
+// = colors =
+// ==========
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=33z0Z0kdIxn5DTe9DI+hNrxlIm3 */
+
+/* As hex codes */
+$blue: #6689a9;
+$blue-lightest: #c3d7e9;
+$blue-lighter: #93b1cc;
+$blue-darker: #456b8e;
+$blue-darkest: #2a5072;
+
+$yellow: #fff892;
+$yellow-lightest: #fffcd2;
+$yellow-lighter: #fffab2;
+$yellow-darker: #dbd361;
+$yellow-darkest: #b0a839;
+
+$pink: #e583a1;
+$pink-lightest: #f8cdda;
+$pink-lighter: #f0a8be;
+$pink-darker: #c45778;
+$pink-darkest: #9d3353;
+
+/* As RGBa codes */
+$rgba-blue-0: rgba(102, 137, 169, 1);
+$rgba-blue-1: rgba(195, 215, 233, 1);
+$rgba-blue-2: rgba(147, 177, 204, 1);
+$rgba-blue-3: rgba(69, 107, 142, 1);
+$rgba-blue-4: rgba(42, 80, 114, 1);
+
+$rgba-secondary-1-0: rgba(255, 248, 146, 1);
+$rgba-secondary-1-1: rgba(255, 252, 210, 1);
+$rgba-secondary-1-2: rgba(255, 250, 178, 1);
+$rgba-secondary-1-3: rgba(219, 211, 97, 1);
+$rgba-secondary-1-4: rgba(176, 168, 57, 1);
+
+$rgba-secondary-2-0: rgba(229, 131, 161, 1);
+$rgba-secondary-2-1: rgba(248, 205, 218, 1);
+$rgba-secondary-2-2: rgba(240, 168, 190, 1);
+$rgba-secondary-2-3: rgba(196, 87, 120, 1);
+$rgba-secondary-2-4: rgba(157, 51, 83, 1);
