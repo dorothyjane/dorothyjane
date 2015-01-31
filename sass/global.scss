@@ -3,7 +3,7 @@ h1 {
   line-height: 1.6;
 }
 
-h2, h3, p {
+h2, h3, p, a {
   font-family: droid-sans, sans-serif;
 }
 
@@ -27,4 +27,12 @@ ul, ol {
   li {
     list-style: none;
   }
+}
+
+.floatright {
+  float: right;
+}
+
+.floatleft {
+  float: left;
 }

@@ -6,10 +6,29 @@ block content
       .mini-central
         h1= title
         h2= subtitle
-        .social-links
+        //- .social-links
+        //-   each link, name in links
+        //-     a(href=link)
+        //-       i.fa.fa-4x(class="fa-#{name}")
+        nav.menu
+          input#menu-open.menu-open(type='checkbox', href='#', name='menu-open')
+          label.menu-open-button(for='menu-open')
+            span.hamburger.hamburger-1
+            span.hamburger.hamburger-2
+            span.hamburger.hamburger-3
           each link, name in links
-            a(href=link)
-              i.fa.fa-4x(class="fa-#{name}")
+            a.menu-item(href=link)
+              i.fa.fa-2x(class="fa-#{name}")
+          //- a.menu-item(href='#')
+          //-   i.fa.fa-plus
+          //- a.menu-item(href='#')
+          //-   i.fa.fa-heart
+          //- a.menu-item(href='#')
+          //-   i.fa.fa-envelope
+          //- a.menu-item(href='#')
+          //-   i.fa.fa-cog
+          //- a.menu-item(href='#')
+          //-   i.fa.fa-ellipsis-h
 
 
 

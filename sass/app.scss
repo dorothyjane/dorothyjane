@@ -3,100 +3,6 @@
 @import "myform";
 @import "global";
 
-nav.right-position {
-  // background colors / colors set in each of site.sass / admin.sass and staff.sass. Grey used as placeholder only
-  float: right;
-  // margin-top: 10px
-  border: none;
-  font-weight: 400;
-  @media only screen and (max-width: 700px) {
-    margin-top: 0;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      float: left;
-      list-style: none;
-      position: relative;
-      margin: 0;
-      a {
-        display: block;
-        font-size: 18px;
-        padding: 4px 8px;
-        margin-left: 8px;
-        line-height: 2;
-        text-transform: uppercase;
-        vertical-align: middle;
-        &:hover {
-          color: #999999;
-        }
-        span {
-          font-size: 14px;
-          text-transform: uppercase;
-        }
-        @media only screen and (max-width: 600px) {
-          font-size: 18px;
-          span {
-            display: none;
-          }
-        }
-      }
-      &:last-child, &.right-align {
-        ul {
-          right: 0;
-          a {
-            white-space: nowrap;
-          }
-        }
-      }
-      ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-         background: white;
-        z-index: 9999;
-        min-width: 120px;
-        li {
-          float: none;
-          margin-left: 0;
-          padding: 0;
-          display: block;
-          &:last-child a, &:last-child a:hover {
-            border-bottom: none;
-          }
-          a {
-            color: #999999;
-            border-bottom: 1px dotted #666666;
-            margin-left: 0;
-            font-size: 12px;
-            padding: 8px;
-            i {
-              margin: -2px 5px -2px -2px;
-              font-size: 18px;
-             }
-          }
-          a:hover {
-            color: #666666;
-            background: #f1f1f1;
-          }
-          a.logout {
-            &:hover {
-              color: #cc0000;
-            }
-          }
-        }
-      }
-      &:hover {
-        > ul {
-          // +transition
-          display: block;
-        }
-      }
-    }
-  }
-}
-
 #index {
   position: relative;
 }
@@ -110,77 +16,177 @@ nav.right-position {
 }
 
 .central {
-  height: 100%;
+  height: 70%;
   width: 100%;
   display: table;
   .mini-central {
     vertical-align: middle;
     display: table-cell;
-    @extend .social-links;
+    //@extend .social-links;
+    nav.menu {
+      margin-top: $open-distance;
+    }
     h2 {
       font-weight: 300;
     }
   }
 }
 
+// old
+// .social-links {
+//   margin: 10px 5px;
+//   a {
+//     padding: 5px 15px;
+//   }
+//   i {
+//     color: $blue-darkest;
+//     &:hover {
+//       color: $yellow;
+//       @include transition(color .4s ease);
+//     }
+//   }
+// }
 
-.social-links {
-  margin: 10px 5px;
-  a {
-    padding: 5px 15px;
+// i {
+//   color: $blue-darkest;
+//   &:hover {
+//     color: $yellow;
+//     @include transition(color .4s ease);
+//   }
+// }
+
+// ==================
+// = exploding menu =
+// ==================
+
+%goo{
+  filter:url('#goo');
+  // debug
+  // background:rgba(255,0,0,0.2);
+}
+
+%ball{
+  background:$pink-darkest;
+  border-radius:100%;
+  width:80px;
+  height:80px;
+  margin-left:-40px;
+  position:absolute;
+  top:20px;
+  color:white;
+  text-align:center;
+  line-height:95px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+
+.menu-open{
+  display:none;
+}
+
+.menu-item{
+  @extend %ball;
+}
+
+.hamburger{
+  $width:25px;
+  $height:3px;
+  width:$width;
+  height:$height;
+  background:white;
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-$width/2;
+  margin-top:-$height/2;
+  transition:transform 200ms;
+}
+
+$hamburger-spacing:8px;
+.hamburger-1{
+  transform:translate3d(0,-$hamburger-spacing,0);
+}
+.hamburger-2{
+  transform:translate3d(0,0,0);
+}
+.hamburger-3{
+  transform:translate3d(0,$hamburger-spacing,0);
+}
+.menu-open:checked+.menu-open-button{
+  .hamburger-1{
+    transform:translate3d(0,0,0) rotate(45deg);
   }
-  i {
-    color: $blue-darkest;
-    &:hover {
+  .hamburger-2{
+    transform:translate3d(0,0,0) scale(0.1,1);
+  }
+  .hamburger-3{
+    transform:translate3d(0,0,0) rotate(-45deg);
+  }
+}
+
+
+.menu{
+  //@extend %goo;
+  $width:380px;
+  $height:250px;
+  position:absolute;
+  left:50%;
+  margin-left:-$width/2;
+  padding-top:20px;
+  padding-left:$width/2;
+  width:$width;
+  height:$height;
+  box-sizing:border-box;
+  font-size:20px;
+  text-align:left;
+}
+
+
+.menu-item{
+  &:hover{
+    background: $pink-lighter;
+    @include transition(background .2s ease);
+    i {
       color: $yellow;
-      @include transition(color .4s ease);
+      @include transition(color .2s ease);
     }
   }
-}
-//DN TABS
-.dn-tabs {
-  .dn-tabs-nav {
-    margin: 0 0 30px;
-    position: relative;
-    border-bottom: 1px solid #999;
-
-    ul,li {
-      list-style: none;
-      margin: 0 0 -1px 10px;
-      padding: 0;
-      li {
-        display: inline-block;
-        margin: 0;
-      }
-      a {
-        display: block;
-        margin-right: 2px;
-        padding: 5px 10px;
-        @include roundtopcorners(5px);
-        background: #efefef;
-        border: 1px solid #999;
-        color: #999;
-        &:hover {
-          background: #e1e1e1;
-          text-decoration: none;
-        }
-        &.current {
-          background: white;
-          border-bottom: 1px solid white;
-          z-index: 2;
-          color: #666;
-        }
-      }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
     }
   }
 }
 
-// panel
-.panel {
-  border: 1px solid $blue-darkest;
-  background: $blue-lightest;
-  @include rounded;
-  @include box-shadow;
-  padding: 20px;
-  margin-top: 10%;
+.menu-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
 }
+
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.935, 0.000, 0.340, 1.330);
+  @for $i from 1 through $menu-items{
+    $angle:(($pi - $opening-angle)/2)+(($opening-angle/($menu-items - 1))*($i - 1));
+
+    &:nth-child(#{$i+2}){
+      transition-duration:80ms+(100ms*$i);
+      transform:translate3d(cos($angle)*$open-distance,sin($angle)*$open-distance,0);
+    }
+  }
+}
+

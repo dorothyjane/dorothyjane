@@ -2,6 +2,7 @@ var url = require('url');
 var express = require('express'); // takes care of http
 var _ = require('underscore');
 var app = express();
+var bodyParser = require('body-parser');
 var fs = require('fs');
 
 
@@ -10,6 +11,8 @@ app.set('view engine', 'jade');
 
 
 
+// body parse my params into json
+app.use( bodyParser.urlencoded({ extended: false}) );
 
 // check for sesssion if go to place where need session
 app.all('/admin/*', function(req, res, next){
@@ -33,7 +36,9 @@ app.get('/', function(request, response, next){
       links: {
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",
-        google: "https://plus.google.com/u/0/117368907696249336489/about"
+        google: "https://plus.google.com/u/0/117368907696249336489/about",
+        user: "/",
+        book: "/"
       }
     });
 });
