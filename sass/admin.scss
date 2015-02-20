@@ -1,0 +1,130 @@
+//DN TABS
+.dn-tabs {
+  .dn-tabs-nav {
+    margin: 0 0 30px;
+    position: relative;
+    border-bottom: 1px solid #999;
+
+    ul,li {
+      list-style: none;
+      margin: 0 0 -1px 10px;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin: 0;
+      }
+      a {
+        display: block;
+        margin-right: 2px;
+        padding: 5px 10px;
+        @include roundtopcorners(5px);
+        background: #efefef;
+        border: 1px solid #999;
+        color: #999;
+        &:hover {
+          background: #e1e1e1;
+          text-decoration: none;
+        }
+        &.current {
+          background: white;
+          border-bottom: 1px solid white;
+          z-index: 2;
+          color: #666;
+        }
+      }
+    }
+  }
+
+nav.right-position {
+  // background colors / colors set in each of site.sass / admin.sass and staff.sass. Grey used as placeholder only
+  float: right;
+  // margin-top: 10px
+  border: none;
+  font-weight: 400;
+  @media only screen and (max-width: 700px) {
+    margin-top: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      list-style: none;
+      position: relative;
+      margin: 0;
+      a {
+        display: block;
+        font-size: 18px;
+        padding: 4px 8px;
+        margin-left: 8px;
+        line-height: 2;
+        text-transform: uppercase;
+        vertical-align: middle;
+        &:hover {
+          color: #999999;
+        }
+        span {
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+        @media only screen and (max-width: 600px) {
+          font-size: 18px;
+          span {
+            display: none;
+          }
+        }
+      }
+      &:last-child, &.right-align {
+        ul {
+          right: 0;
+          a {
+            white-space: nowrap;
+          }
+        }
+      }
+      ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+         background: white;
+        z-index: 9999;
+        min-width: 120px;
+        li {
+          float: none;
+          margin-left: 0;
+          padding: 0;
+          display: block;
+          &:last-child a, &:last-child a:hover {
+            border-bottom: none;
+          }
+          a {
+            color: #999999;
+            border-bottom: 1px dotted #666666;
+            margin-left: 0;
+            font-size: 12px;
+            padding: 8px;
+            i {
+              margin: -2px 5px -2px -2px;
+              font-size: 18px;
+             }
+          }
+          a:hover {
+            color: #666666;
+            background: #f1f1f1;
+          }
+          a.logout {
+            &:hover {
+              color: #cc0000;
+            }
+          }
+        }
+      }
+      &:hover {
+        > ul {
+          // +transition
+          display: block;
+        }
+      }
+    }
+  }
+}

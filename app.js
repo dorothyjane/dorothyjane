@@ -2,14 +2,28 @@ var url = require('url');
 var express = require('express'); // takes care of http
 var _ = require('underscore');
 var app = express();
+var connection = require('./database');
+// var multiparty = require('multiparty');
 var bodyParser = require('body-parser');
+var authRouter = require('./lib/routers/auth');
+var adminRouter = require('./lib/routers/admin');
+var session = require('cookie-session');
 var fs = require('fs');
+// var authenticationPassport = require('./lib/authentication');
 
 
 // use jade, similar to haml but compiled with javascript ;)
 app.set('view engine', 'jade');
 
+// =================
+// = sessions shit =
+// =================
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // body parse my params into json
 app.use( bodyParser.urlencoded({ extended: false}) );
@@ -24,7 +38,14 @@ app.all('/admin/*', function(req, res, next){
   }
 })
 
+// ==================
+// = use my routers =
+// ==================
 
+// authentication
+app.use(authRouter);
+// admin pages
+app.use(adminRouter);
 
 // homepage
 app.get('/', function(request, response, next){
