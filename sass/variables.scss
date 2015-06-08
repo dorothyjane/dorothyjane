@@ -2,11 +2,11 @@
 // = variables =
 // =============
 
-$pi:3.14;
+$pi: 3.14;
 //burger menu variables
-$menu-items:5+1;
-$open-distance:105px;
-$opening-angle:$pi*2;
+$menu-items: 5+1;
+$open-distance: 105px;
+$opening-angle: $pi*2;
 // ===================
 // = maths functions =
 // ===================
@@ -93,19 +93,19 @@ $opening-angle:$pi*2;
 // ===========================
 
 @mixin keyframes($animation-name) {
-  @-webkit-keyframes $animation-name {
+  @-webkit-keyframes #{$animation-name} {
     @content;
   }
-  @-moz-keyframes $animation-name {
+  @-moz-keyframes #{$animation-name} {
     @content;
   }
-  @-ms-keyframes $animation-name {
+  @-ms-keyframes #{$animation-name} {
     @content;
   }
-  @-o-keyframes $animation-name {
+  @-o-keyframes #{$animation-name} {
     @content;
   }
-  @keyframes $animation-name {
+  @keyframes #{$animation-name} {
     @content;
   }
 }
@@ -121,6 +121,7 @@ $opening-angle:$pi*2;
 // ===============
 // = transitions =
 // ===============
+
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -179,6 +180,7 @@ $opening-angle:$pi*2;
 // =========
 // = fonts =
 // =========
+
 @include fontFace("MyFont", "../fonts/leaguegothic-regular-webfont");
 @import url("http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Stalemate|Yanone+Kaffeesatz:400,700,300,200");
 
