@@ -51,7 +51,7 @@ $opening-angle: $pi*2;
   $unitless: $angle / ($angle * 0 + 1);
   // If the angle has 'deg' as unit, convert to radians.
   @if $unit == deg {
-    $unitless: $unitless / 180 * pi();
+    $unitless: $unitless / 180 * $pi;
   }
   @return $unitless;
 }
@@ -175,6 +175,45 @@ $opening-angle: $pi*2;
     font-style: $style;
     font-weight: $weight;
   }
+}
+
+//mixin to provide just a basic outline for the text
+@mixin outline($color: #fff) {
+  text-shadow: 1.5px 1.5px 0 $color,
+           -1.5px -1.5px 0 $color,
+           -1.5px -1.5px 0 $color,
+           -1.5px 1.5px 0 $color,
+           1.5px -1.5px 0 $color;
+}
+
+@mixin shade($type, $color: #3498db, $borderColor: #fff, $depth: 20, $angle: 135deg, $long: false, $fade: false) {
+    $angle: ($angle - 90);
+    $x: 1.1 * cos($angle) + 0px;
+    $y: 1.1 * sin($angle) + 0px;
+    $darken: (lightness($color)/$depth)/2;
+    $opacify: 0;
+    $shadow: ();
+
+    @if $long == true{
+      $darken:0;
+    }
+
+    @if $fade == true {
+      $opacify: (opacity($color)/$depth) ;
+        // added this for rendering in some browsers, remove if you like.
+      @include translateZ(0);
+    }
+
+    @for $i from 1 through $depth {
+      $shadow: $shadow, $i*$x $i*$y 0 hsla(hue($color) , saturation($color), (lightness($color) - ($i * $darken)), 1 - ($i * $opacify));
+    }
+    #{$type}-shadow:  1.5px 1.5px 0 $borderColor,
+                      0px 1.5px 0 $borderColor,
+                      -1.5px -1.5px 0 $borderColor,
+                      -1.5px -1.5px 0 $borderColor,
+                      -1.5px 1.5px 0 $borderColor,
+                       1.5px -1.5px 0 $borderColor,
+                       $shadow;
 }
 
 // =========

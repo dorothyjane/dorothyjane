@@ -53,7 +53,7 @@ app.get('/', function(request, response, next){
   //response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
   response.render('index', {
       title: 'dorothy jane wingrove',
-      subtitle: 'something about me',
+      subtitle: 'full stack web developer',
       links: {
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",

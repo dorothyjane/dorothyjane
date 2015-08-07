@@ -3,19 +3,21 @@
 @import "myform";
 @import "global";
 
+// make it half round between hovers
 @include keyframes('half-round') {
     0% { border-radius: 0%; height: 25px; }
     60% { border-radius: 50%; height: 3px; }
     100% { border-radius: 0%; height: 3px; }
 }
 
+// make the heart beat + move them (left right bottom)
 @include keyframes('throb-1') {
   0%{
     transform: scale(1) translate3d(10px,-14px,0) rotate(-45deg);
   }
 
   35%{
-    transform: scale(1.2) translate3d(10px,-14px,0) rotate(-45deg);
+    transform: scale(1.1) translate3d(10px,-14px,0) rotate(-45deg);
   }
 
   100%{
@@ -25,41 +27,37 @@
 @include keyframes('throb-2') {
   0%{
     transform: scale(1) translate3d(-10px, -14px,0) rotate(-45deg);
-    // width: 25px;
-    // height: 25px;
   }
-
   35%{
-    transform: scale(1.2) translate3d(-10px, -14px,0) rotate(-45deg);
-    // width: 30px;
-    // height: 30px;
+    transform: scale(1.1) translate3d(-10px, -14px,0) rotate(-45deg);
   }
 
   100%{
     transform: scale(1) translate3d(-10px, -14px,0) rotate(-45deg);
-    // width: 25px;
-    // height: 25px;
   }
 }
 @include keyframes('throb-3') {
   0%{
     transform: scale(1) translate3d(0,-4px,0) rotate(45deg);
-    // width: 25px;
-    // height: 25px;
   }
-
   35%{
-    transform: scale(1.2) translate3d(0,-4px,0) rotate(45deg);
-    // width: 30px;
-    // height: 30px;
+    transform: scale(1.1) translate3d(0,-4px,0) rotate(45deg);
   }
-
   100%{
     transform: scale(1) translate3d(0,-4px,0) rotate(45deg);
-    // width: 25px;
-    // height: 25px;
   }
 }
+
+// the orbit
+@include keyframes(orbit) {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 // the styles
 
 #index {
@@ -72,6 +70,47 @@
 
 .full-height {
   height: 100%;
+}
+
+// retro hover links
+.retro-link {
+  text-decoration: none;
+  @include outline(#aaa);
+  //transition: all 400ms ease-in-out;
+}
+
+svg {
+  line-height: 1.2;
+  width: 410px;
+  height: 1.5em;
+}
+
+.retro-link {
+  text,
+  stop {
+    transition: all 350ms ease-in-out;
+  }
+  text {
+    text-transform: uppercase;
+    fill: url(#striped);
+    @include outline(#ccc);
+  }
+  &:hover text {
+    @include shade(text, #aaa, #333, 10, 135deg, true);
+  }
+
+  //animate gradient stop points
+  & stop {
+    stop-color: #fff;
+  }
+  &:hover stop {
+    stop-color: #fff;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      stop-color: $pink-darkest;
+    }
+  }
 }
 
 .central {
@@ -88,31 +127,16 @@
     h2 {
       font-weight: 300;
     }
+    .languages {
+      font-size: 2.5em;
+      color: #fff;
+      margin-top: 10px;
+      i {
+        padding: 0 5px;
+      }
+    }
   }
 }
-
-// old
-// .social-links {
-//   margin: 10px 5px;
-//   a {
-//     padding: 5px 15px;
-//   }
-//   i {
-//     color: $blue-darkest;
-//     &:hover {
-//       color: $yellow;
-//       @include transition(color .4s ease);
-//     }
-//   }
-// }
-
-// i {
-//   color: $blue-darkest;
-//   &:hover {
-//     color: $yellow;
-//     @include transition(color .4s ease);
-//   }
-// }
 
 // ==================
 // = exploding menu =
@@ -175,48 +199,50 @@ $hamburger-spacing: 8px;
 }
 
 // makes the lines two circles and a sqaure to make a heart...
-.menu-open:checked+.menu-open-button {
-  .hamburger-1 {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    //transform: translate3d(10px,-14px,0) rotate(-45deg);
-    z-index: 0;
-    @include animation('throb-1 1s infinite');
-    // @include animation('throb 1s infinite');
-  }
-  .hamburger-2 {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    @include animation('throb-2 1s infinite');
-    //transform: translate3d(-10px, -14px,0) rotate(-45deg);
-    // @include animation('throb 1s infinite');
-  }
-  .hamburger-3 {
-    width: 25px;
-    height: 25px;
-    z-index: 0;
-    @include animation('throb-3 1s infinite');
-    //transform: translate3d(0,-4px,0) rotate(45deg);
-    // @include animation('throb 1s infinite');
-  }
-  .hamburger-1 {
-  }
-}
+// .menu-open:checked+.menu-open-button {
+//   $width: 25px;
+//   $height: 25px;
+//   .hamburger-1 {
+//     width: $width;
+//     height: $height;
+//     border-radius: 50%;
+//     //transform: translate3d(10px,-14px,0) rotate(-45deg);
+//     z-index: 0;
+//     @include animation('throb-1 1s infinite');
+//     // @include animation('throb 1s infinite');
+//   }
+//   .hamburger-2 {
+//     width: $width;
+//     height: $height;
+//     border-radius: 50%;
+//     @include animation('throb-2 1s infinite');
+//     //transform: translate3d(-10px, -14px,0) rotate(-45deg);
+//     // @include animation('throb 1s infinite');
+//   }
+//   .hamburger-3 {
+//     width: $width;
+//     height: $height;
+//     z-index: 0;
+//     @include animation('throb-3 1s infinite');
+//     //transform: translate3d(0,-4px,0) rotate(45deg);
+//     // @include animation('throb 1s infinite');
+//   }
+//   .hamburger-1 {
+//   }
+// }
 
 .menu-open:checked+.menu-open-button {
   &:hover {
     .hamburger-1 {
-      @include animation('half-round .8s ease 1 forwards');
+      // @include animation('half-round .8s ease 1 forwards');
       transform: translate3d(0,0,0) rotate(45deg);
     }
     .hamburger-2 {
-      @include animation('half-round .8s ease 1 forwards');
+      // @include animation('half-round .8s ease 1 forwards');
       transform: translate3d(0,0,0) scale(0.1,1);
     }
     .hamburger-3 {
-      @include animation('half-round .8s ease 1 forwards');
+      // @include animation('half-round .8s ease 1 forwards');
       transform: translate3d(0,0,0) rotate(-45deg);
     }
   }
@@ -224,7 +250,7 @@ $hamburger-spacing: 8px;
 
 
 .menu {
-  //@extend %goo;
+  @extend %goo;
   $width: 380px;
   $height: 250px;
   position: absolute;
@@ -242,12 +268,12 @@ $hamburger-spacing: 8px;
 
 .menu-item {
   &:hover {
-    background: $pink-lighter;
-    @include transition(background .2s ease);
-    i {
-      color: $yellow;
-      @include transition(color .2s ease);
+    .heart-wrapper {
+      visibility: visible;
     }
+  }
+  i {
+    width: 30px;
   }
   @for $i from 1 through $menu-items {
     &:nth-child(#{$i+2}){
@@ -265,6 +291,7 @@ $hamburger-spacing: 8px;
   cursor: pointer;
 }
 
+// central circle bobs on hover
 .menu-open-button:hover {
   transform: scale(1.2,1.2) translate3d(0,0,0);
 }
@@ -287,26 +314,74 @@ $hamburger-spacing: 8px;
   }
 }
 
+.heart-wrapper {
+  visibility: hidden;
+  // position: relative;
+  // left: -15px;
+  // top: -15px;
+  margin-left: -75px;
+  margin-top: -20px;
+  @include animation('orbit 2s infinite linear');
+  width: 180px;
+}
+
+$size: 15px;
+$d-2-size: $size / 2;
+
 .heart {
-  position: absolute;
-  border: 4.1em solid rgba(0, 0, 0, 0);
-  border-top-color: #E01B4C;
-  height: 0;
-  width: 0;
-  left: calc(50% - 3em);
-  &:after, &:before {
-    background: #E01B4C;
-    content: "";
-    left: -4.5em;
+  background: #e74c3c;
+  width: $size;
+  height: $size;
+  border-radius: 500% 500% 500% 0%;
+  //margin: $d-2-size;
+  transform: rotate(-45deg);
+  float:left;
+  &:before {
+    content: '';
+    display: block;
+    background: #e74c3c;
+    width: $size;
+    height: $size;
+    border-radius: 500% 500% 500% 0%;
+    margin: $d-2-size;
     position: absolute;
-    height: 6em;
-    width: 5em;
-    border-radius: 2.5em;
-    top: -8.5em;
-    transform: rotate(-45deg);
+    transform: rotate(0deg);
   }
   &:after {
-    left: -0.5em;
-    transform: rotate(45deg);
-  }
+    content: '';
+    display: block;
+    background: #e74c3c;
+    z-index: -1;
+    width: $size;
+    height: $size;
+    border-radius: 500% 500% 500% 0%;
+    margin-left: $size/2;
+    margin-top: $size;
+    position: absolute;
+    transform: rotate(0deg) translateY(-$size/2)  translateX(-$size/2);
+    }
 }
+
+// .heart {
+//   position: absolute;
+//   border: 4.1em solid rgba(0, 0, 0, 0);
+//   border-top-color: #E01B4C;
+//   height: 0;
+//   width: 0;
+//   left: calc(50% - 3em);
+//   &:after, &:before {
+//     background: #E01B4C;
+//     content: "";
+//     left: -4.5em;
+//     position: absolute;
+//     height: 30px;
+//     width: 30px;
+//     border-radius: 2.5em;
+//     top: -8.5em;
+//     transform: rotate(-45deg);
+//   }
+//   &:after {
+//     left: -0.5em;
+//     transform: rotate(45deg);
+//   }
+// }

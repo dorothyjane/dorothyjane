@@ -6,6 +6,11 @@ block content
       .mini-central
         h1= title
         h2= subtitle
+        .languages
+          i.devicon-ruby-plain
+          i.devicon-javascript-plain
+          i.devicon-mysql-plain
+          i.devicon-sass-original
         //- .social-links
         //-   each link, name in links
         //-     a(href=link)
@@ -19,6 +24,17 @@ block content
           each link, name in links
             a.menu-item(href=link)
               i.fa.fa-2x(class="fa-#{name}")
+                .heart-wrapper
+                  .heart
+              //- svg
+              //-   defs
+              //-     lineargradient#striped(x1='0', x2='0', y1='0%', y2='4%', spreadmethod='repeat')
+              //-       stop(offset='0%', stop-color='#9d3353')
+              //-       stop(offset='50%', stop-color='#9d3353')
+              //-       stop(offset='51%', stop-color='#fff')
+              //-       stop(offset='99%', stop-color='#fff')
+              //-       stop(offset='100%', stop-color='#9d3353')
+                //- text(y='1.2em')
           //- a.menu-item(href='#')
           //-   i.fa.fa-plus
           //- a.menu-item(href='#')
@@ -30,6 +46,21 @@ block content
           //- a.menu-item(href='#')
           //-   i.fa.fa-ellipsis-h
 
+//- filters
+svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
+  defs
+    filter#shadowed-goo
+      fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+        fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+          fegaussianblur(in='goo', stddeviation='3', result='shadow')
+            fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2', result='shadow')
+              feoffset(in='shadow', dx='1', dy='1', result='shadow')
+                fecomposite(in2='shadow', in='goo', result='goo')
+                  fecomposite(in2='goo', in='SourceGraphic', result='mix')
+    filter#goo
+      fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+        fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+          fecomposite(in2='goo', in='SourceGraphic', result='mix')
 
 
   script.
