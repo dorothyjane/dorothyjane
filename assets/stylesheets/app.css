@@ -474,6 +474,22 @@ ul li, ol li {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+.vertical {
+  vertical-align: middle; }
+
+.block {
+  background-color: #9d3353;
+  border-radius: 2px;
+  padding: 15px 10px;
+  margin-bottom: 15px; }
+
+.block i {
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 1px dotted #c14268;
+  display: block;
+  padding-bottom: 5px; }
+
 #index {
   position: relative; }
 

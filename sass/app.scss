@@ -58,6 +58,25 @@
   }
 }
 
+// vertical algin
+.vertical {
+  vertical-align: middle;
+}
+
+.block {
+  background-color: $pink-darkest;
+  border-radius: 2px;
+  padding: 15px 10px;
+  margin-bottom: 15px;
+}
+
+.block i {
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 1px dotted lighten($pink-darkest, 10%);
+  display: block;
+  padding-bottom: 5px;
+}
 // the styles
 
 #index {
