@@ -45,25 +45,9 @@ block content
           //- a.menu-item(href='#')
           //-   i.fa.fa-ellipsis-h
 
-//- filters
-svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
-  defs
-    filter#shadowed-goo
-      fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
-        fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
-          fegaussianblur(in='goo', stddeviation='3', result='shadow')
-            fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2', result='shadow')
-              feoffset(in='shadow', dx='1', dy='1', result='shadow')
-                fecomposite(in2='shadow', in='goo', result='goo')
-                  fecomposite(in2='goo', in='SourceGraphic', result='mix')
-    filter#goo
-      fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
-        fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
-          fecomposite(in2='goo', in='SourceGraphic', result='mix')
-
-
   script.
     function heightChange(){
+      debugger;
       var height = window.innerHeight;
       console.log(height);
       document.getElementById('index').setAttribute("style","height:" +height+"px");
@@ -72,3 +56,21 @@ svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
     window.onload = heightChange;
 
     window.onresize = heightChange;
+
+  //- filters
+  svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
+    defs
+      filter#shadowed-goo
+        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+            fegaussianblur(in='goo', stddeviation='3', result='shadow')
+              fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2', result='shadow')
+                feoffset(in='shadow', dx='1', dy='1', result='shadow')
+                  fecomposite(in2='shadow', in='goo', result='goo')
+                    fecomposite(in2='goo', in='SourceGraphic', result='mix')
+      filter#goo
+        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
+          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
+            fecomposite(in2='goo', in='SourceGraphic', result='mix')
+
+
