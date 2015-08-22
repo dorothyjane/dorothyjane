@@ -538,7 +538,7 @@ svg {
     .central .mini-central .languages {
       font-size: 2.5em;
       color: #fff;
-      margin-top: 10px; }
+      opacity: 0.4; }
       .central .mini-central .languages i {
         padding: 0 5px; }
 
