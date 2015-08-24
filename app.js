@@ -43,7 +43,7 @@ app.all('/admin/*', function(req, res, next){
 // ==================
 
 // authentication
-app.use(authRouter);
+// app.use(authRouter);
 // admin pages
 app.use(adminRouter);
 
