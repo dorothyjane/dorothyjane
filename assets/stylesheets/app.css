@@ -272,8 +272,7 @@ h1 {
   font-size: 100px; }
   @media screen and (max-width: 400px) {
     h1 {
-      line-height: 0.6em;
-      font-size: 1em; } }
+      line-height: 0.6em; } }
 
 h2, h3, p, a {
   font-family: droid-sans, sans-serif; }
