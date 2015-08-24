@@ -268,16 +268,18 @@ button:hover {
 
 h1 {
   font-family: "Stalemate", sans-serif;
-  line-height: 1.6; }
+  line-height: 1.6;
+  font-size: 100px; }
+  @media screen and (max-width: 400px) {
+    h1 {
+      line-height: 0.6em;
+      font-size: 14em; } }
 
 h2, h3, p, a {
   font-family: droid-sans, sans-serif; }
 
 body {
   background: #c3d7e9; }
-
-h1 {
-  font-size: 100px; }
 
 h2 {
   font-size: 30px; }

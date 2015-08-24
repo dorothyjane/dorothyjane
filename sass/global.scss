@@ -1,6 +1,13 @@
+$break-small: 400px;
+
 h1 {
   font-family: "Stalemate", sans-serif;
   line-height: 1.6;
+  font-size: 100px;
+  @media screen and (max-width: $break-small) {
+    line-height: 0.6em;
+    font-size: 14em;
+  }
 }
 
 h2, h3, p, a {
@@ -9,10 +16,6 @@ h2, h3, p, a {
 
 body {
   background: $blue-lightest
-}
-
-h1 {
-  font-size: 100px;
 }
 
 h2{
