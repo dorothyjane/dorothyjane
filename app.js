@@ -81,7 +81,7 @@ app.get('*', function(request, response, next){
 // <3  GO!! <3
 // <3 <3 <3 <3
 
-connection.connect(function(error){
+connection.getConnection(function(error){
   if(error){ throw error; }
   var port = process.env.PORT || 8080; // carefull this will work on 0 !!!!
   app.listen(port);
