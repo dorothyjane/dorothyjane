@@ -617,6 +617,8 @@ svg {
   transition-duration: 180ms; }
 .menu-item:nth-child(7) {
   transition-duration: 180ms; }
+.menu-item:nth-child(8) {
+  transition-duration: 180ms; }
 
 .menu-open-button {
   z-index: 2;
@@ -640,15 +642,18 @@ svg {
     transform: translate3d(0.08361px, -104.99997px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(4) {
     transition-duration: 280ms;
-    transform: translate3d(105px, 0px, 0); }
+    transform: translate3d(99.8661px, -32.43088px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(5) {
     transition-duration: 380ms;
-    transform: translate3d(0.08361px, 104.99997px, 0); }
+    transform: translate3d(61.75803px, 84.91729px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(6) {
     transition-duration: 480ms;
-    transform: translate3d(-104.99987px, 0.16723px, 0); }
+    transform: translate3d(-61.62271px, 85.01554px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(7) {
     transition-duration: 580ms;
+    transform: translate3d(-99.91763px, -32.27179px, 0); }
+  .menu-open:checked ~ .menu-item:nth-child(8) {
+    transition-duration: 680ms;
     transform: translate3d(-0.25079px, -104.99969px, 0); }
 
 .heart-wrapper {

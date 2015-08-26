@@ -54,6 +54,7 @@ app.get('/', function(request, response, next){
   response.render('index', {
       title: 'dorothy jane wingrove',
       links: {
+        'hand-peace-o': "/feed",
         github: "https://github.com/dorothyjane",
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",
