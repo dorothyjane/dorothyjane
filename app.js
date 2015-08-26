@@ -54,11 +54,10 @@ app.get('/', function(request, response, next){
   response.render('index', {
       title: 'dorothy jane wingrove',
       links: {
+        github: "https://github.com/dorothyjane",
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",
         google: "https://plus.google.com/u/0/117368907696249336489/about",
-        user: "/",
-        book: "/"
       }
     });
 });
