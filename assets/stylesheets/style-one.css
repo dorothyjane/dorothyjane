@@ -8,4 +8,7 @@ h1 {
 .central .mini-central .languages {
   color: #336067; }
 
+nav.menu .menu-open-button, nav.menu .menu-item {
+  background: #88e670; }
+
 /*# sourceMappingURL=style-one.css.map */
