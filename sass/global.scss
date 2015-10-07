@@ -3,7 +3,7 @@ $break-small: 400px;
 h1 {
   font-family: "Stalemate", sans-serif;
   line-height: 1.6;
-  font-size: 100px;
+  font-size: 120px;
   @media screen and (max-width: $break-small) {
     line-height: 0.6em;
   }
@@ -13,9 +13,6 @@ h2, h3, p, a {
   font-family: droid-sans, sans-serif;
 }
 
-body {
-  background: $blue-lightest
-}
 
 h2{
   font-size: 30px;
@@ -37,4 +34,65 @@ ul, ol {
 
 .floatleft {
   float: left;
+}
+
+// vertical algin
+.vertical {
+  vertical-align: middle;
+}
+
+.block {
+  background-color: $pink-darkest;
+  border-radius: 2px;
+  padding: 15px 10px;
+  margin-bottom: 15px;
+}
+
+.block i {
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 1px dotted lighten($pink-darkest, 10%);
+  display: block;
+  padding-bottom: 5px;
+}
+// the styles
+
+#index {
+  position: relative;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.central {
+  height: 70%;
+  @media (max-width: $small-screen) {
+    height: 60%;
+  }
+  width: 100%;
+  display: table;
+  .mini-central {
+    vertical-align: middle;
+    display: table-cell;
+    //@extend .social-links;
+    nav.menu {
+      margin-top: $open-distance;
+    }
+    h2 {
+      font-weight: 300;
+    }
+    .languages {
+      font-size: 3em;
+      color: #fff;
+      opacity: 0.8;
+      i {
+        padding: 0 5px;
+      }
+    }
+  }
 }
