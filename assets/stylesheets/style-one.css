@@ -11,4 +11,11 @@ h1 {
 nav.menu .menu-open-button, nav.menu .menu-item {
   background: #88e670; }
 
+.trailElement {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  position: absolute;
+  background-color: #fff; }
+
 /*# sourceMappingURL=style-one.css.map */
