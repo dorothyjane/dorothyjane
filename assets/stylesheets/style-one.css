@@ -16,6 +16,22 @@ nav.menu .menu-open-button, nav.menu .menu-item {
   height: 20px;
   border-radius: 10px;
   position: absolute;
-  background-color: #fff; }
+  background-color: #e9a6aa; }
+
+.trailElement#trail_1 {
+  width: 18px;
+  height: 18px; }
+
+.trailElement#trail_2 {
+  width: 16px;
+  height: 16px; }
+
+.trailElement#trail_3 {
+  width: 14px;
+  height: 14px; }
+
+.trailElement#trail_4 {
+  width: 12px;
+  height: 12px; }
 
 /*# sourceMappingURL=style-one.css.map */

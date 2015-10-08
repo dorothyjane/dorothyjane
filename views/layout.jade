@@ -10,7 +10,8 @@ html
       title .__~~** DW **~~__.
   body
     block content
-    .trailElement
-    .trailElement
-    .trailElement
+    - var n = 0
+    while n < 4
+      .trailElement(id="trail_"+n)
+      - n ++
     script(src='javascripts/mouse-trail.js')
