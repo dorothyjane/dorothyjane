@@ -34,8 +34,10 @@ function loop(trailElement, i){
     x_diff = following_x - x;
     y_diff = following_y - y;
 
-    x_diff = x_diff > 0 ? (x_diff - 10) : (x_diff + 10)
-    y_diff = y_diff > 0 ? (y_diff - 10) : (y_diff + 10)
+    distance_behind = (i == 0) ? 20 : 10
+
+    x_diff = x_diff > 0 ? (x_diff - distance_behind) : (x_diff + distance_behind)
+    y_diff = y_diff > 0 ? (y_diff - distance_behind) : (y_diff + distance_behind)
 
     x_move = x_diff * drag[i];
     y_move = y_diff * drag[i];

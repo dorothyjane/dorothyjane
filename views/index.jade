@@ -5,15 +5,6 @@ block content
     .central
       .mini-central
         h1= title
-        .languages
-          i.devicon-ruby-plain
-          i.devicon-javascript-plain
-          i.devicon-mysql-plain
-          i.devicon-sass-original
-        //- .social-links
-        //-   each link, name in links
-        //-     a(href=link)
-        //-       i.fa.fa-4x(class="fa-#{name}")
         nav.menu
           input#menu-open.menu-open(type='checkbox', href='#', name='menu-open')
           label.menu-open-button(for='menu-open')
@@ -23,27 +14,10 @@ block content
           each link, name in links
             a.menu-item(href=link)
               i.fa.fa-2x(class="fa-#{name}")
-                .heart-wrapper
-                  .heart
-              //- svg
-              //-   defs
-              //-     lineargradient#striped(x1='0', x2='0', y1='0%', y2='4%', spreadmethod='repeat')
-              //-       stop(offset='0%', stop-color='#9d3353')
-              //-       stop(offset='50%', stop-color='#9d3353')
-              //-       stop(offset='51%', stop-color='#fff')
-              //-       stop(offset='99%', stop-color='#fff')
-              //-       stop(offset='100%', stop-color='#9d3353')
-                //- text(y='1.2em')
-          //- a.menu-item(href='#')
-          //-   i.fa.fa-plus
-          //- a.menu-item(href='#')
-          //-   i.fa.fa-heart
-          //- a.menu-item(href='#')
-          //-   i.fa.fa-envelope
-          //- a.menu-item(href='#')
-          //-   i.fa.fa-cog
-          //- a.menu-item(href='#')
-          //-   i.fa.fa-ellipsis-h
+                .orbit-wrapper
+                  .orbit
+                    //-  .heart
+                    i.fa.fa-smile-o
 
   script.
     function heightChange(){

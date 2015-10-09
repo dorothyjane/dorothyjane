@@ -1,10 +1,14 @@
 $break-small: 400px;
+$break-medium: 550px;
 
 h1 {
   font-family: "Stalemate", sans-serif;
   line-height: 1.6;
   font-size: 120px;
-  @media screen and (max-width: $break-small) {
+  text-shadow: 2px 2px #ff0000;
+  position: relative;
+  z-index: 10;
+  @media screen and (max-width: $break-medium) {
     line-height: 0.6em;
   }
 }
@@ -86,12 +90,18 @@ ul, ol {
     h2 {
       font-weight: 300;
     }
-    .languages {
-      font-size: 3.5em;
-      color: #fff;
-      i {
-        padding: 0 5px;
-      }
-    }
+  }
+}
+
+//= FOOTER
+
+.languages {
+  margin: 0 auto;
+  font-size: 2em;
+  color: #fff;
+  z-index: 1;
+  display: inline-block;
+  i {
+    padding: 0 5px;
   }
 }

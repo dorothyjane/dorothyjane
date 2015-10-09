@@ -269,8 +269,11 @@ button:hover {
 h1 {
   font-family: "Stalemate", sans-serif;
   line-height: 1.6;
-  font-size: 120px; }
-  @media screen and (max-width: 400px) {
+  font-size: 120px;
+  text-shadow: 2px 2px #ff0000;
+  position: relative;
+  z-index: 10; }
+  @media screen and (max-width: 550px) {
     h1 {
       line-height: 0.6em; } }
 
@@ -328,14 +331,18 @@ ul li, ol li {
     vertical-align: middle;
     display: table-cell; }
     .central .mini-central nav.menu {
-      margin-top: 105px; }
+      margin-top: 120px; }
     .central .mini-central h2 {
       font-weight: 300; }
-    .central .mini-central .languages {
-      font-size: 3.5em;
-      color: #fff; }
-      .central .mini-central .languages i {
-        padding: 0 5px; }
+
+.languages {
+  margin: 0 auto;
+  font-size: 2em;
+  color: #fff;
+  z-index: 1;
+  display: inline-block; }
+  .languages i {
+    padding: 0 5px; }
 
 svg {
   line-height: 1.2;
@@ -406,22 +413,25 @@ svg {
   font-size: 20px;
   text-align: left; }
 
-.menu-item:hover .heart-wrapper {
-  visibility: visible; }
-.menu-item i {
-  width: 30px; }
-.menu-item:nth-child(3) {
-  transition-duration: 180ms; }
-.menu-item:nth-child(4) {
-  transition-duration: 180ms; }
-.menu-item:nth-child(5) {
-  transition-duration: 180ms; }
-.menu-item:nth-child(6) {
-  transition-duration: 180ms; }
-.menu-item:nth-child(7) {
-  transition-duration: 180ms; }
-.menu-item:nth-child(8) {
-  transition-duration: 180ms; }
+.menu-item {
+  width: 80px;
+  height: 80px; }
+  .menu-item:hover .orbit-wrapper {
+    visibility: visible; }
+  .menu-item i {
+    width: 30px; }
+  .menu-item:nth-child(3) {
+    transition-duration: 180ms; }
+  .menu-item:nth-child(4) {
+    transition-duration: 180ms; }
+  .menu-item:nth-child(5) {
+    transition-duration: 180ms; }
+  .menu-item:nth-child(6) {
+    transition-duration: 180ms; }
+  .menu-item:nth-child(7) {
+    transition-duration: 180ms; }
+  .menu-item:nth-child(8) {
+    transition-duration: 180ms; }
 
 .menu-open-button {
   z-index: 2;
@@ -442,22 +452,22 @@ svg {
   transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33); }
   .menu-open:checked ~ .menu-item:nth-child(3) {
     transition-duration: 180ms;
-    transform: translate3d(0.08361px, -104.99997px, 0); }
+    transform: translate3d(0.09556px, -119.99996px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(4) {
     transition-duration: 280ms;
-    transform: translate3d(99.8661px, -32.43088px, 0); }
+    transform: translate3d(114.13269px, -37.06386px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(5) {
     transition-duration: 380ms;
-    transform: translate3d(61.75803px, 84.91729px, 0); }
+    transform: translate3d(70.58061px, 97.04833px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(6) {
     transition-duration: 480ms;
-    transform: translate3d(-61.62271px, 85.01554px, 0); }
+    transform: translate3d(-70.42595px, 97.16061px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(7) {
     transition-duration: 580ms;
-    transform: translate3d(-99.91763px, -32.27179px, 0); }
+    transform: translate3d(-114.19157px, -36.88204px, 0); }
   .menu-open:checked ~ .menu-item:nth-child(8) {
     transition-duration: 680ms;
-    transform: translate3d(-0.25079px, -104.99969px, 0); }
+    transform: translate3d(-0.28661px, -119.99964px, 0); }
 
 @-webkit-keyframes half-round {
   0% {
@@ -659,7 +669,7 @@ svg {
   .retro-link:hover stop:nth-child(2), .retro-link:hover stop:nth-child(3) {
     stop-color: #9d3353; }
 
-.heart-wrapper {
+.orbit-wrapper {
   visibility: hidden;
   margin-left: -75px;
   margin-top: -20px;
@@ -670,13 +680,18 @@ svg {
   animation: orbit 2s infinite linear;
   width: 180px; }
 
+.orbit {
+  float: left;
+  width: 15px;
+  height: 15px; }
+
+.orbit i {
+  color: #fde74e; }
+
 .heart {
   background: #e74c3c;
-  width: 15px;
-  height: 15px;
   border-radius: 500% 500% 500% 0%;
-  transform: rotate(-45deg);
-  float: left; }
+  transform: rotate(-45deg); }
   .heart:before {
     content: '';
     display: block;

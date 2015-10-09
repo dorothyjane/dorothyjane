@@ -139,8 +139,10 @@ $hamburger-spacing: 8px;
 
 
 .menu-item {
+  width: 80px;
+  height: 80px;
   &:hover {
-    .heart-wrapper {
+    .orbit-wrapper {
       visibility: visible;
     }
   }
@@ -174,6 +176,7 @@ $hamburger-spacing: 8px;
   transform: scale(0.8,0.8) translate3d(0,0,0);
 }
 
+// menu items bobble out
 .menu-open:checked~.menu-item {
   transition-timing-function: cubic-bezier(0.935, 0.000, 0.340, 1.330);
   @for $i from 1 through $menu-items{

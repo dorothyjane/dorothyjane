@@ -99,7 +99,7 @@
 
 
 
-.heart-wrapper {
+.orbit-wrapper {
   visibility: hidden;
   // position: relative;
   // left: -15px;
@@ -110,17 +110,25 @@
   width: 180px;
 }
 
+
 $size: 15px;
 $d-2-size: $size / 2;
 
-.heart {
-  background: #e74c3c;
+.orbit {
+  float:left;
   width: $size;
   height: $size;
+}
+
+.orbit i {
+  color: #fde74e;
+}
+
+.heart {
+  background: #e74c3c;
   border-radius: 500% 500% 500% 0%;
   //margin: $d-2-size;
   transform: rotate(-45deg);
-  float:left;
   &:before {
     content: '';
     display: block;
