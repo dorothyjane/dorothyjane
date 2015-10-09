@@ -9,14 +9,9 @@ function updateMouseLocations(e){
 }
 
 function trailTheElements(){
-  console.log('trail');
   for(var x=0; x < trailElements.length; x++){
-    console.log('count', x);
-    // trailElements[x].style.left = e.pageX + 'px';
-    // trailElements[x].style.top = e.pageY + 'px';
     trailElements[x] = loop(trailElements[x], x);
   }
-  // trailTheElements();
   requestAnimationFrame(trailTheElements);
 }
 
@@ -51,7 +46,7 @@ function loop(trailElement, i){
 
     trailElement.style.left = x + 'px';
     trailElement.style.top = y + 'px';
-    // loop(trailElement, i);
+
     return trailElement;
 }
 
