@@ -25,7 +25,6 @@ function loop(trailElement, i){
       }
       following_x = parseFloat(trailElements[i-1].style.left);
       following_y = parseFloat(trailElements[i-1].style.top);
-      console.log(i, following_x, following_y);
     } else {
       following_x =  mouse['x'];
       following_y = mouse['y'];
