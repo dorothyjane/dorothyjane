@@ -9,6 +9,8 @@ var authRouter = require('./lib/routers/auth');
 var adminRouter = require('./lib/routers/admin');
 var session = require('cookie-session');
 var fs = require('fs');
+var methodOverride = require('method-override')
+
 // var authenticationPassport = require('./lib/authentication');
 
 
@@ -27,6 +29,7 @@ app.use(session({
 
 // body parse my params into json
 app.use( bodyParser.urlencoded({ extended: false}) );
+app.use(methodOverride('_method'))
 
 // check for sesssion if go to place where need session
 app.all('/admin/*', function(req, res, next){
@@ -45,6 +48,8 @@ app.all('/admin/*', function(req, res, next){
 app.use(authRouter);
 // admin pages
 app.use(adminRouter);
+// blogs in admin
+// app.use(blogRouter);
 
 // homepage
 app.get('/', function(request, response, next){
@@ -70,7 +75,7 @@ app.get('/feed', function(request, response, next){
 });
 
 // static folder directory (telling the browser where to look)
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static('assets'));
 
 // * is any url... in order so this must happen last, above routes are fine
 app.get('*', function(request, response, next){

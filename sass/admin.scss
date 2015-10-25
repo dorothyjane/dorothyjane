@@ -17,7 +17,7 @@
         display: block;
         margin-right: 2px;
         padding: 5px 10px;
-        @include roundtopcorners(5px);
+        //@include roundtopcorners(5px);
         background: #efefef;
         border: 1px solid #999;
         color: #999;
@@ -34,6 +34,7 @@
       }
     }
   }
+}
 
 nav.right-position {
   // background colors / colors set in each of site.sass / admin.sass and staff.sass. Grey used as placeholder only

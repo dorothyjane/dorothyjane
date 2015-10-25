@@ -1,14 +1,19 @@
 doctype html
 html
   head
-    link(rel="stylesheet", type="text/css", href="stylesheets/app.css")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/admin/app.css")
     block title
       title .__~~** DW ADMIN **~~__.
   body
     nav.right-position
       ul
         li
-          a(href='/') BLOOGS
+          a(href="/admin/index")
+            i.fa.fa-home
         li
-          a(href='/logout') LOGOOT
+          a(href='/admin/blog') BLOGS
+        li
+          a.logout(href='/logout')
+            i.fa.fa-sign-out(title="logout")
     block content

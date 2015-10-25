@@ -1,0 +1,13 @@
+extends ../layout.jade
+
+block content
+  h1= blog.name
+
+  form(action="/admin/blog/#{blog.id}?_method=PUT" method='post')
+
+    label Name
+    input(name='name' type='text' value=blog.name)
+
+    button(type='submit') Update
+
+

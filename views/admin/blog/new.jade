@@ -1,0 +1,13 @@
+extends ../layout.jade
+
+block content
+  h1 New blog
+
+  form(action="/admin/blog" method='post')
+
+    label Name
+    input(name='name' type='text')
+
+    button(type='submit') Create
+
+
