@@ -30,9 +30,8 @@ app.use( bodyParser.urlencoded({ extended: false}) );
 
 // check for sesssion if go to place where need session
 app.all('/admin/*', function(req, res, next){
-  console.log(req.session);
-  if(!req.session.admin){
-    res.redirect('/login');
+  if(!req.session.admin && (req.url != '/admin/login')){
+    res.redirect('/admin/login');
   } else {
     next();
   }
@@ -43,7 +42,7 @@ app.all('/admin/*', function(req, res, next){
 // ==================
 
 // authentication
-// app.use(authRouter);
+app.use(authRouter);
 // admin pages
 app.use(adminRouter);
 
