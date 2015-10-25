@@ -17,6 +17,7 @@
     "font-awesome": "^4.2.0",
     "haml": "^0.4.3",
     "jade": "^1.9.0",
+    "method-override": "^2.3.5",
     "mysql": "^2.5.3",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
