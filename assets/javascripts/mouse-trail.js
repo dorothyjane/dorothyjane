@@ -21,8 +21,6 @@ function loop(trailElement, i){
 
 
     if(typeof trailElements[i-1] != "undefined"){
-      if(i == 1){
-      }
       following_x = parseFloat(trailElements[i-1].style.left);
       following_y = parseFloat(trailElements[i-1].style.top);
     } else {
