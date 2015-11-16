@@ -5,8 +5,11 @@ var app = express();
 var connection = require('./database');
 // var multiparty = require('multiparty');
 var bodyParser = require('body-parser');
+
 var authRouter = require('./lib/routers/auth');
 var adminRouter = require('./lib/routers/admin');
+var blogRouter = require('./lib/routers/blog');
+
 var session = require('cookie-session');
 var fs = require('fs');
 var methodOverride = require('method-override')
@@ -49,7 +52,7 @@ app.use(authRouter);
 // admin pages
 app.use(adminRouter);
 // blogs in admin
-// app.use(blogRouter);
+app.use(blogRouter);
 
 // homepage
 app.get('/', function(request, response, next){
@@ -68,11 +71,11 @@ app.get('/', function(request, response, next){
     });
 });
 
-app.get('/feed', function(request, response, next){
-  response.render('feed', {
-    twitter_id: ''
-  });
-});
+// app.get('/feed', function(request, response, next){
+//   response.render('feed', {
+//     twitter_id: ''
+//   });
+// });
 
 // static folder directory (telling the browser where to look)
 app.use(express.static('assets'));
