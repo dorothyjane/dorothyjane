@@ -13,7 +13,7 @@ var blogRouter = require('./lib/routers/blog');
 var session = require('cookie-session');
 var fs = require('fs');
 var methodOverride = require('method-override')
-
+app.locals.moment = require('moment');
 // var authenticationPassport = require('./lib/authentication');
 
 
