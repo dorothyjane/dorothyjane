@@ -1,46 +1,25 @@
-//DN TABS
-.dn-tabs {
-  .dn-tabs-nav {
-    margin: 0 0 30px;
-    position: relative;
-    border-bottom: 1px solid #999;
+@import "avantgrid";
+@import "variables";
 
-    ul,li {
-      list-style: none;
-      margin: 0 0 -1px 10px;
-      padding: 0;
-      li {
-        display: inline-block;
-        margin: 0;
-      }
-      a {
-        display: block;
-        margin-right: 2px;
-        padding: 5px 10px;
-        //@include roundtopcorners(5px);
-        background: #efefef;
-        border: 1px solid #999;
-        color: #999;
-        &:hover {
-          background: #e1e1e1;
-          text-decoration: none;
-        }
-        &.current {
-          background: white;
-          border-bottom: 1px solid white;
-          z-index: 2;
-          color: #666;
-        }
-      }
-    }
-  }
+$blue: #ace5e8;
+$dark-blue: #33b2b7;
+$dark-grey: #1A1A1A;
+
+h1 {
+  font-family: "Stalemate", sans-serif;
+  color: $dark-grey;
+  margin: 30px 0 0 30px;
+  font-size: 3.5em;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-grey;
 }
 
 nav.right-position {
-  // background colors / colors set in each of site.sass / admin.sass and staff.sass. Grey used as placeholder only
   float: right;
-  // margin-top: 10px
-  border: none;
+  margin: 10px 30px 0 0;
   font-weight: 400;
   @media only screen and (max-width: 700px) {
     margin-top: 0;
@@ -53,11 +32,12 @@ nav.right-position {
       list-style: none;
       position: relative;
       margin: 0;
+      border-right: 1px solid #1A1A1A;
       a {
         display: block;
         font-size: 18px;
-        padding: 4px 8px;
-        margin-left: 8px;
+        padding: 4px 12px;
+        margin: 0 8px;
         line-height: 2;
         text-transform: uppercase;
         vertical-align: middle;
@@ -129,3 +109,43 @@ nav.right-position {
     }
   }
 }
+
+table {
+  width: 75%;
+  text-align: left;
+}
+
+.form-group {
+  display: block;
+}
+
+label {
+  margin-right: 15px;
+}
+
+input {
+  min-width: 400px;
+  height: 34px;
+  @include roundcorners;
+  margin: 2px 5px;
+  padding: 2px;
+}
+
+button {
+  padding: 10px 25px;
+  color: #AFAFAF;
+  margin: 5px;
+  border: none;
+  background-color: $blue;
+  text-transform: uppercase;
+  @include roundcorners;
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+
+.editable, .noneditable, body > p {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 500px;
+  }
