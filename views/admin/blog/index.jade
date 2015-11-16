@@ -1,20 +1,24 @@
 extends ../layout.jade
 
 block content
-  h2 BLOGS
-  table
-    thead
-      th ID
-      th Name
-      th created
-      th
-    tbody
-      each blog in blogs
-        tr
-          td= blog.id
-          td= blog.name
-          td= blog.created_at
-          td
-            a(href="/admin/blog/#{blog.id}")
-              i.fa.fa-edit
+  .block-1-1
+    h2 BLOGS
+    .block-1-4
+    .block-2-4
+      table
+        thead
+          th ID
+          th Name
+          th created
+          th
+        tbody
+          each blog in blogs
+            tr
+              td= blog.id
+              td= blog.name
+              td= moment(blog.created_at).format('Do MMM YYYY hh:mm')
+              td
+                a(href="/admin/blog/#{blog.id}")
+                  i.fa.fa-edit
 
+    .block-1-4
