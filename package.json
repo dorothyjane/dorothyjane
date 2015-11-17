@@ -25,7 +25,5 @@
     "underscore": "^1.7.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.1"
   }
 }
