@@ -62,7 +62,7 @@ app.get('/', function(request, response, next){
       title: 'dorothy jane wingrove',
       theme: 'style-one',
       links: {
-        'hand-peace-o': "/feed",
+        'commenting-o': "/blogs",
         github: "https://github.com/dorothyjane",
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",
