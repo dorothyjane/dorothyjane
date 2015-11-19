@@ -289,6 +289,10 @@ a {
 ul li, ol li {
   list-style: none; }
 
+footer {
+  position: fixed;
+  bottom: 0; }
+
 .floatright {
   float: right; }
 
