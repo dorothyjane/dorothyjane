@@ -66,7 +66,7 @@ app.get('/', function(request, response, next){
         github: "https://github.com/dorothyjane",
         twitter: "https://twitter.com/_dorothyjane",
         instagram: "http://instagram.com/dottiejane/",
-        google: "https://plus.google.com/u/0/117368907696249336489/about",
+        codepen: "http://codepen.io/dorothy/",
       }
     });
 });
