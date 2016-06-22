@@ -62,9 +62,8 @@ app.get('/', function(request, response, next){
       title: 'dorothy jane wingrove',
       theme: 'style-one',
       links: {
-        'commenting-o': "/blogs",
-        github: "https://github.com/dorothyjane",
-        twitter: "https://twitter.com/_dorothyjane",
+        github: "https://github.com/notthepoint",
+        twitter: "https://twitter.com/notthepoint",
         instagram: "http://instagram.com/dottiejane/",
         codepen: "http://codepen.io/dorothy/",
       }
@@ -90,7 +89,7 @@ app.get('*', function(request, response, next){
 // <3 <3 <3 <3
 
 connection.getConnection(function(error){
-  if(error){ throw error; }
+  // if(error){ throw error; }
   var port = process.env.PORT || 8080; // carefull this will work on 0 !!!!
   app.listen(port);
 });

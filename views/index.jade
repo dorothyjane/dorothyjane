@@ -1,29 +1,33 @@
 extends ./layout.jade
 
 block content
-  - var n = 0
+  <!-- - var n = 0
   while n < 4
     .trailElement(id="trail_"+n)
     - n ++
-  script(src='javascripts/mouse-trail.js')
+  script(src='javascripts/mouse-trail.js') -->
+  a#blog
+  a#index
 
   #index.center-text.full-height
-    .central
+    .panel.central
+      h1= title
+
       .mini-central
-        h1= title
-        nav.menu
-          input#menu-open.menu-open(type='checkbox', href='#', name='menu-open')
-          label.menu-open-button(for='menu-open')
-            span.hamburger.hamburger-1
-            span.hamburger.hamburger-2
-            span.hamburger.hamburger-3
-          each link, name in links
-            a.menu-item(href=link)
-              i.fa.fa-2x(class="fa-#{name}")
-                .orbit-wrapper
-                  .orbit
-                    //-  .heart
-                    i.fa.fa-smile-o
+        each link, name in links
+          a.menu-item(href=link)
+            i.fa.fa-2x(class="fa-#{name}")
+
+      a.blog-link(href="#blog")
+        h2 read my blog
+          i.fa.fa-angle-double-down
+
+  
+    .panel#blog
+      a(href="#index")
+        go back
+      h3 A blog!
+
 
   script.
     function heightChange(){
@@ -34,21 +38,5 @@ block content
     window.onload = heightChange;
 
     window.onresize = heightChange;
-
-  //- filters`
-  svg(xmlns='http://www.w3.org/2000/svg', version='1.1')
-    defs
-      filter#shadowed-goo
-        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
-          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
-            fegaussianblur(in='goo', stddeviation='3', result='shadow')
-              fecolormatrix(in='shadow', mode='matrix', values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2', result='shadow')
-                feoffset(in='shadow', dx='1', dy='1', result='shadow')
-                  fecomposite(in2='shadow', in='goo', result='goo')
-                    fecomposite(in2='goo', in='SourceGraphic', result='mix')
-      filter#goo
-        fegaussianblur(in='SourceGraphic', result='blur', stddeviation='10')
-          fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7', result='goo')
-            fecomposite(in2='goo', in='SourceGraphic', result='mix')
 
 

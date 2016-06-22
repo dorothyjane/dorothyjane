@@ -12,7 +12,8 @@ var URL = require('url');
 //   database        : db_url.path.substr(1)
 // });
 
-var connection = mysql.createPool(process.env.DATABASE_URL);
+var db_connection = process.env.DATABASE_URL || 'mysql://user:pass@host/db?waitForConnections=false';
+var connection = mysql.createPool(db_connection);
 
 
 module.exports = connection;

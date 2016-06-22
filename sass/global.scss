@@ -1,13 +1,22 @@
 $break-small: 400px;
 $break-medium: 550px;
 
-h1 {
+html,body {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+h1, h2 {
   font-family: "Stalemate", sans-serif;
-  line-height: 1.6;
-  font-size: 120px;
-  text-shadow: 2px 2px #ff0000;
-  position: relative;
+}
+
+h1 {
+  line-height: 1;
+  font-size: 250px;
+  text-shadow: 3px 3px #ff0000;
   z-index: 10;
+  margin: 40px 0;
   @media screen and (max-width: $break-medium) {
     line-height: 0.6em;
   }
@@ -15,11 +24,6 @@ h1 {
 
 h2, h3, p, a {
   font-family: droid-sans, sans-serif;
-}
-
-
-h2{
-  font-size: 30px;
 }
 
 a {
@@ -79,24 +83,80 @@ footer {
 }
 
 .central {
-  height: 70%;
+  min-height: 100vh;
+  display: block;
+
   @media (max-width: $small-screen) {
     height: 60%;
   }
-  width: 100%;
-  display: table;
-  .mini-central {
-    vertical-align: middle;
-    display: table-cell;
-    //@extend .social-links;
-    nav.menu {
-      margin-top: $open-distance;
+
+  a {
+    color: $yellow-darker;
+    transition: all 0.2s ease;
+
+
+    &:hover {
+      color: $yellow;
     }
-    h2 {
-      font-weight: 300;
+
+    &.blog-link {
+
+      h2 {
+        display: inline-block;
+      }
+
+      font-size: 2em;
+      color: $blue-darker;
+      text-shadow: 1px 1px $blue-darkest;
+
+      i {
+        vertical-align: bottom;
+        padding-left: 15px;
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: $blue-darkest;
+      }
+    }
+  }
+  .mini-central {
+    display: table;
+    margin: 0 auto;
+
+    .menu-item {
+    
+      padding: 20px;
+      display: table-cell;
+      width: 20%;
+      font-size: 1.8em;
     }
   }
 }
+
+//= BLOG
+
+#blog {
+  min-height: 100vh;
+  background: $pink;
+  // height: 800px;
+  width: 100%;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+}
+
+// slide to blog
+
+a[ id= "index" ]:target ~ #index div.panel {
+  -webkit-transform: translateY( 0px );
+  transform: translateY( 0px );
+}
+
+a[ id= "blog" ]:target ~ #index div.panel {
+  -webkit-transform: translateY( -100vh );
+  transform: translateY( -100vh );
+}
+
 
 //= FOOTER
 
