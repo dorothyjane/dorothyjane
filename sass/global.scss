@@ -7,6 +7,10 @@ html,body {
   position: relative; 
 }
 
+body {
+    overflow: hidden;
+}
+
 h1, h2 {
   font-family: "Stalemate", sans-serif;
 }
@@ -41,38 +45,12 @@ footer {
   bottom: 0;
 }
 
-.floatright {
-  float: right;
-}
-
-.floatleft {
-  float: left;
-}
-
 // vertical algin
 .vertical {
   vertical-align: middle;
 }
 
-.block {
-  background-color: #e5da6e;
-  border-radius: 2px;
-  padding: 15px 10px;
-  margin-bottom: 15px;
-}
-
-.block i {
-  font-size: 2em;
-  text-align: center;
-  border-bottom: 1px dotted lighten($pink-darkest, 10%);
-  display: block;
-  padding-bottom: 5px;
-}
 // the styles
-
-#index {
-  position: relative;
-}
 
 .center-text {
   text-align: center;
@@ -85,6 +63,7 @@ footer {
 .central {
   min-height: 100vh;
   display: block;
+  position:relative;
 
   @media (max-width: $small-screen) {
     height: 60%;
@@ -136,23 +115,26 @@ footer {
 
 //= BLOG
 
-#blog {
+div#blog, div#index {
   min-height: 100vh;
-  background: $pink;
   // height: 800px;
   width: 100%;
   -webkit-transition: -webkit-transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
 }
 
+#blog {
+  background: $pink;
+}
+
 // slide to blog
 
-a[ id= "index" ]:target ~ #index div.panel {
+a[ id= "index" ]:target ~ .center-text div.panel {
   -webkit-transform: translateY( 0px );
   transform: translateY( 0px );
 }
 
-a[ id= "blog" ]:target ~ #index div.panel {
+a[ id= "blog" ]:target ~ .center-text div.panel {
   -webkit-transform: translateY( -100vh );
   transform: translateY( -100vh );
 }

@@ -6,11 +6,11 @@ block content
     .trailElement(id="trail_"+n)
     - n ++
   script(src='javascripts/mouse-trail.js') -->
-  a#blog
   a#index
+  a#blog
 
-  #index.center-text.full-height
-    .panel.central
+  .center-text.full-height
+    #index.panel.central
       h1= title
 
       .mini-central
@@ -23,7 +23,7 @@ block content
           i.fa.fa-angle-double-down
 
   
-    .panel#blog
+    #blog.panel
       a(href="#index")
         go back
       h3 A blog!
