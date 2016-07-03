@@ -20,7 +20,7 @@ h1 {
   font-size: 250px;
   text-shadow: 3px 3px #ff0000;
   z-index: 10;
-  margin: 60px 0 40px;
+  margin: 20px 0;
   @media screen and (max-width: $break-medium) {
     line-height: 0.6em;
   }
@@ -108,7 +108,7 @@ footer {
   }
   .mini-central {
     display: table;
-    margin: 0 auto;
+    margin: 20px auto 0;
 
     .menu-item {
     
