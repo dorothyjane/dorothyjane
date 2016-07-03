@@ -8,6 +8,11 @@
 /* Palette color codes */
 /* Palette URL: http://paletton.com/#uid=33z0Z0kdIxn5DTe9DI+hNrxlIm3 */
 /* As hex codes */
+/*$blue: #6689a9;
+$blue-lightest: #c3d7e9;
+$blue-lighter: #93b1cc;
+$blue-darker: #456b8e;
+$blue-darkest: #2a5072;*/
 /* As RGBa codes */
 /* Global Variables */
 /* changing box model on all elemnts */
@@ -282,12 +287,17 @@ h1 {
   font-size: 250px;
   text-shadow: 3px 3px #ff0000;
   z-index: 10;
-  margin: 40px 0; }
+  margin: 60px 0 40px; }
   @media screen and (max-width: 550px) {
     h1 {
       line-height: 0.6em; } }
 
-h2, h3, p, a {
+h2 {
+  font-size: 80px;
+  text-shadow: 3px 3px #dbd361;
+  color: #50959f; }
+
+h3, p, a {
   font-family: droid-sans, sans-serif; }
 
 a {
@@ -323,8 +333,8 @@ footer {
       color: #fff892; }
     .central a.blog-link {
       font-size: 2em;
-      color: #456b8e;
-      text-shadow: 1px 1px #2a5072; }
+      color: #50959f;
+      text-shadow: 1px 1px #448089; }
       .central a.blog-link h2 {
         display: inline-block; }
       .central a.blog-link i {
@@ -332,7 +342,8 @@ footer {
         padding-left: 15px;
         font-weight: bold; }
       .central a.blog-link:hover {
-        color: #2a5072; }
+        color: #448089;
+        /*text-shadow: 1px 1px $blue;*/ }
   .central .mini-central {
     display: table;
     margin: 0 auto; }
@@ -349,7 +360,17 @@ div#blog, div#index {
   transition: transform 0.6s ease-in-out; }
 
 #blog {
-  background: #e583a1; }
+  background: #61A6B0; }
+  #blog a.back {
+    float: right;
+    text-shadow: 3px 3px #ff0000;
+    font-size: 3em;
+    line-height: 1em;
+    /*margin: 40px;*/
+    color: #dbcb34;
+    margin: 40px 30px; }
+    #blog a.back:hover {
+      color: #fff892; }
 
 a[id="index"]:target ~ .center-text div.panel {
   -webkit-transform: translateY(0px);

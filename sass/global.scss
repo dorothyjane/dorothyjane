@@ -20,13 +20,19 @@ h1 {
   font-size: 250px;
   text-shadow: 3px 3px #ff0000;
   z-index: 10;
-  margin: 40px 0;
+  margin: 60px 0 40px;
   @media screen and (max-width: $break-medium) {
     line-height: 0.6em;
   }
 }
 
-h2, h3, p, a {
+h2 {
+  font-size: 80px;
+  text-shadow: 3px 3px $yellow-darker;
+  color: $blue-darker;
+}
+
+h3, p, a {
   font-family: droid-sans, sans-serif;
 }
 
@@ -96,6 +102,7 @@ footer {
 
       &:hover {
         color: $blue-darkest;
+        /*text-shadow: 1px 1px $blue;*/
       }
     }
   }
@@ -124,7 +131,21 @@ div#blog, div#index {
 }
 
 #blog {
-  background: $pink;
+  background: $blue;
+
+  a.back {
+    float: right;
+    text-shadow: 3px 3px #ff0000;
+    font-size: 3em;
+    line-height: 1em;
+    /*margin: 40px;*/
+    color: #dbcb34;
+    margin: 40px 30px;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
 }
 
 // slide to blog
