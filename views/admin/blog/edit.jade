@@ -1,22 +1,15 @@
 extends ../layout.jade
 
 block content
-  link(rel="stylesheet" type="text/css" href="/stylesheets/admin/trix.css")
-  script(type="text/javascript" src="/javascripts/trix.js")
+  script(src="/javascripts/quill.min.js")
+  link(rel="stylesheet", type="text/css", href="/stylesheets/quill.base.css")
+  link(rel="stylesheet", type="text/css", href="/stylesheets/quill.snow.css")
 
 
   .block-1-1
-    h2= blog.name
+    h2 Edit blog
 
-    .block-1-1.grid-center
-      form(action="/admin/blog/#{blog.id}?_method=PUT" method='post')
-        .form-group
-          label Name
-          input(name='name' type='text' value=blog.name)
-        .form-group
-          input(name='body' type='hidden' id='trix-body' value=blog.body)
-          trix-editor.trix-content(input='trix-body')
-        button(type='submit') Update
+    form(action="/admin/blog/#{blog.id}" method='POST')
+      input(type="hidden" name="_method" value="PUT")
 
-
-  script(type='text/javascript')
+      include ./form.jade

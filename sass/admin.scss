@@ -12,6 +12,11 @@ h1 {
   font-size: 3.5em;
 }
 
+h2 {
+  font-size: 2.5em;
+  margin: 20px 30px;
+}
+
 a {
   text-decoration: none;
   color: $dark-grey;
@@ -115,37 +120,50 @@ table {
   text-align: left;
 }
 
-.form-group {
-  display: block;
-}
-
-label {
-  margin-right: 15px;
+form {
+  width: 90%;
+  margin: 0 auto;
 }
 
 input {
   min-width: 400px;
   height: 34px;
-  @include roundcorners;
-  margin: 2px 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin: 2px 0;
   padding: 2px;
+  border: 1px solid $blue-darkest;
 }
 
-button {
-  padding: 10px 25px;
-  color: #AFAFAF;
-  margin: 5px;
-  border: none;
-  background-color: $blue;
-  text-transform: uppercase;
-  @include roundcorners;
-  &:hover {
-    background-color: $dark-blue;
+#toolbar, #editor {
+  width: 100%;
+  margin: 15px auto;
+  border: 1px solid $blue-darkest;
+  border-radius: 3px;
+}
+
+#editor {
+  height: 500px;
+  overlow-y: scroll;
+}
+
+button, select {
+  color: $blue-darkest;
+  padding: 2px 4px;
+  font-size: 1.1em;
+  background: #fff;
+  border: 1px solid $blue-darkest;
+  border-radius: 3px;
+  margin: 0 2px;
+
+  &.ql-active, &:hover {
+    background-color: $blue-lighter;
+  }
+
+  &.submit {
+    color: $yellow-darkest;
+    background: $yellow;
+    text-align: right;
   }
 }
 
-.editable, .noneditable, body > p {
-    width: 80%;
-    margin: 0 auto;
-    min-height: 500px;
-  }

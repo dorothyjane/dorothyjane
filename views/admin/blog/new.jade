@@ -1,16 +1,12 @@
 extends ../layout.jade
 
 block content
-  h1 New blog
+  
 
-  form(action="/admin/blog" method='post')
+  .bock-1-1
+    h2 New blog
 
-    label Name
-    input(name='name' type='text')
-
-    label Body
-    input(name='body' type='text')
-    
-    button(type='submit') Create
+    form(action="/admin/blog" method='POST')
+      include ./form.jade
 
 

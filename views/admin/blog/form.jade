@@ -1,0 +1,64 @@
+if blog
+  input(name='name' type='text', placeholder="Name", value=blog.name)
+else
+  input(name='name' type='text', placeholder="Name")
+
+if blog
+  input#body(type="hidden" name="body" value=blog.body)
+else
+  input#body(type="hidden" name="body")
+
+div#toolbar
+  select.ql-size
+    option(value="10px") small
+    option(value="14px") medium
+    option(value="18px") big
+    option(value="22px") biggest
+    option(value="25px") huge
+  button.ql-bold BOLD
+  button.ql-italic ITALIC
+  button.ql-strike STRIKE
+  button.ql-underline UNDERLINE
+  button.ql-link LINK
+  select.ql-color
+    option(value='#61A6B0')
+    option(value='#8ec0c7')
+    option(value='#78b3bb')
+    option(value='#50959f')
+    option(value='#448089')
+    option(value='#fff892')
+    option(value='#fffcd2')
+    option(value='#fffab2')
+    option(value='#dbd361')
+    option(value='#b0a839')
+    option(value='#e583a1')
+    option(value='#f8cdda')
+    option(value='#f0a8be')
+    option(value='#c45778')
+    option(value='#9d3353')
+
+div#editor
+  if blog
+    !{blog.body}
+
+button.submit(type='submit') Create
+
+
+script.
+  var configs = {
+    theme: 'snow',
+    format: ['bold', 'italic', 'color', 'size', 'strike']
+  };
+
+  var quill = new Quill('#editor', configs);
+  quill.addModule('toolbar', { container: '#toolbar' });
+
+
+  var hiddenField = document.getElementById('body');
+
+  quill.on('text-change', function(){
+    console.log('change')
+    hiddenField.setAttribute("value", quill.getHTML());
+  })
+
+

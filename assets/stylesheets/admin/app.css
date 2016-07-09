@@ -134,12 +134,21 @@
 /* Palette color codes */
 /* Palette URL: http://paletton.com/#uid=33z0Z0kdIxn5DTe9DI+hNrxlIm3 */
 /* As hex codes */
+/*$blue: #6689a9;
+$blue-lightest: #c3d7e9;
+$blue-lighter: #93b1cc;
+$blue-darker: #456b8e;
+$blue-darkest: #2a5072;*/
 /* As RGBa codes */
 h1 {
   font-family: "Stalemate", sans-serif;
   color: #1A1A1A;
   margin: 30px 0 0 30px;
   font-size: 3.5em; }
+
+h2 {
+  font-size: 2.5em;
+  margin: 20px 30px; }
 
 a {
   text-decoration: none;
@@ -218,35 +227,42 @@ table {
   width: 75%;
   text-align: left; }
 
-.form-group {
-  display: block; }
-
-label {
-  margin-right: 15px; }
+form {
+  width: 90%;
+  margin: 0 auto; }
 
 input {
   min-width: 400px;
   height: 34px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  margin: 2px 5px;
-  padding: 2px; }
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin: 2px 0;
+  padding: 2px;
+  border: 1px solid #448089; }
 
-button {
-  padding: 10px 25px;
-  color: #AFAFAF;
-  margin: 5px;
-  border: none;
-  background-color: #ace5e8;
-  text-transform: uppercase;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px; }
-  button:hover {
-    background-color: #33b2b7; }
+#toolbar, #editor {
+  width: 100%;
+  margin: 15px auto;
+  border: 1px solid #448089;
+  border-radius: 3px; }
 
-.editable, .noneditable, body > p {
-  width: 80%;
-  margin: 0 auto;
-  min-height: 500px; }
+#editor {
+  height: 500px;
+  overlow-y: scroll; }
+
+button, select {
+  color: #448089;
+  padding: 2px 4px;
+  font-size: 1.1em;
+  background: #fff;
+  border: 1px solid #448089;
+  border-radius: 3px;
+  margin: 0 2px; }
+  button.ql-active, button:hover, select.ql-active, select:hover {
+    background-color: #78b3bb; }
+  button.submit, select.submit {
+    color: #b0a839;
+    background: #fff892;
+    text-align: right; }
 
 /*# sourceMappingURL=app.css.map */
