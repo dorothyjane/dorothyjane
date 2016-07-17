@@ -91,7 +91,7 @@ app.use(express.static('assets'));
 
 // * is any url... in order so this must happen last, above routes are fine
 app.get('*', function(request, response, next){
-  response.send(404, "NOT FOUND!!!!!!!!!!!");
+  response.status(404).send("NOT FOUND!!!!!!!!!!!");
 })
 
 // <3 <3 <3 <3
