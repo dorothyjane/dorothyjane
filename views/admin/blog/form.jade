@@ -59,7 +59,6 @@ script.
   var hiddenField = document.getElementById('body');
 
   quill.on('text-change', function(){
-    console.log('change')
     hiddenField.setAttribute("value", quill.getHTML());
   });
 
@@ -87,22 +86,66 @@ script.
     xhr.onreadystatechange = function(){
       if(xhr.readyState === 4){
         if(xhr.status === 200){
-          
+
+          var imageDiv = document.createElement('div');
+          imageDiv.className = 'image-wrapper';
+
           var image = document.createElement('img');
           image.src = signedRequest.split('?')[0];
 
           var div = document.getElementsByClassName('ql-editor')[0];
+
+          imageDiv.appendChild(image);
           
-          debugger;
-          div.appendChild(image);
-        }
-        else{
+          div.appendChild(imageDiv);
+          image.addEventListener('click', addImageResizeState, false);
+        } else {
           alert('Could not upload file.');
         }
       }
     };
     xhr.send(file);
   }
+
+  function addImageResizeState(e){
+    e.stopPropagation();
+
+    var image = e.target;
+    var imageWrapper = e.target.parentElement;
+
+    imageWrapper.className += ' resizing-active';
+
+    console.log('about to add mousedown');
+
+    imageWrapper.addEventListener('mousedown', dragEvent);
+    document.addEventListener('mouseup', stopImageResize);
+  }
+
+  function dragEvent(e) {
+    var image = e.target.children[0];
+    var startingImageHeight = image.height;
+    var mouseY = e.clientY;
+
+    document.onmousemove = function(e) {
+      var diff = e.clientY - mouseY;
+      image.height = startingImageHeight + diff;
+    }
+  }
+
+  function stopImageResize(e) {
+    console.log('removing...');
+    var image = e.target.children[0];
+    var imageWrapper = document.getElementsByClassName('resizing-active')[0];
+    
+    imageWrapper.classList.remove('resizing-active');
+    //- imageWrapper.removeEventListener('mousedown', this.eventHandler);
+    document.onmousemove = null;
+    // TODO: add original event listener to image again + remove class on wrapper
+  }
+
+  //- document.getElementsByClassName('blog-image').addEventListener('click', function(e){
+  //-   debugger;
+  //- });
 
   (function(){
     document.getElementById("uploadImage").addEventListener('change',function(){
@@ -113,6 +156,12 @@ script.
       }
       getSignedRequest(file);
     });
+
+    var images = document.getElementsByTagName('img');
+
+    for (var i=0; i<images.length; i++) {
+      images[i].addEventListener('click', addImageResizeState);
+    };
   })();
 
 

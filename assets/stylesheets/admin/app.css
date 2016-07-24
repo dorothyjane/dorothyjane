@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Global Variables */
 /* changing box model on all elemnts */
 @import url("http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Stalemate|Yanone+Kaffeesatz:400,700,300,200");
@@ -245,6 +246,21 @@ input {
   margin: 15px auto;
   border: 1px solid #448089;
   border-radius: 3px; }
+  #toolbar .image-wrapper, #editor .image-wrapper {
+    display: inline-block; }
+  #toolbar .resizing-active, #editor .resizing-active {
+    border: 2px dashed red;
+    padding: 2px;
+    pointer-events: none; }
+    #toolbar .resizing-active:after, #editor .resizing-active:after {
+      content: '▒';
+      font-size: 20px;
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+      pointer-events: all;
+      margin-right: -20px;
+      margin-top: 20px; }
 
 #editor {
   height: 500px;
