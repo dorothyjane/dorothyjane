@@ -98,7 +98,8 @@ script.
           imageDiv.appendChild(image);
           
           div.appendChild(imageDiv);
-          image.addEventListener('click', addImageResizeState, false);
+          image.addEventListener('click', addImageSelectedState, false);
+
         } else {
           alert('Could not upload file.');
         }
@@ -107,7 +108,8 @@ script.
     xhr.send(file);
   }
 
-  function addImageResizeState(e){
+  function addImageSelectedState(e){
+    imageSelected = true;
     e.stopPropagation();
 
     var image = e.target;
@@ -115,13 +117,13 @@ script.
 
     imageWrapper.className += ' resizing-active';
 
-    console.log('about to add mousedown');
-
     imageWrapper.addEventListener('mousedown', dragEvent);
-    document.addEventListener('mouseup', stopImageResize);
+    document.addEventListener('mouseup', endImageSelectedState);
   }
 
   function dragEvent(e) {
+    e.stopPropagation();
+
     var image = e.target.children[0];
     var startingImageHeight = image.height;
     var mouseY = e.clientY;
@@ -132,20 +134,19 @@ script.
     }
   }
 
-  function stopImageResize(e) {
-    console.log('removing...');
+  function endImageSelectedState(e) {
+    imageSelected = false;
+    e.stopPropagation();
+
     var image = e.target.children[0];
     var imageWrapper = document.getElementsByClassName('resizing-active')[0];
-    
-    imageWrapper.classList.remove('resizing-active');
-    //- imageWrapper.removeEventListener('mousedown', this.eventHandler);
-    document.onmousemove = null;
-    // TODO: add original event listener to image again + remove class on wrapper
-  }
 
-  //- document.getElementsByClassName('blog-image').addEventListener('click', function(e){
-  //-   debugger;
-  //- });
+    imageWrapper.classList.remove('resizing-active');
+    document.onmousemove = null;
+
+    imageWrapper.removeEventListener('mousedown', dragEvent);
+    document.removeEventListener('mouseup', endImageSelectedState);
+  }
 
   (function(){
     document.getElementById("uploadImage").addEventListener('change',function(){
@@ -160,7 +161,7 @@ script.
     var images = document.getElementsByTagName('img');
 
     for (var i=0; i<images.length; i++) {
-      images[i].addEventListener('click', addImageResizeState);
+      images[i].addEventListener('click', addImageSelectedState);
     };
   })();
 
