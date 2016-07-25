@@ -68,7 +68,15 @@ app.use(blogRouter);
 app.get('/', function(request, response, next){
   // interally writehead, write, end.. express has wrapped it up for us
   //response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
-  response.render('index', {
+
+  var query = "select * from blogs order by created_at"
+
+  connection.query(query, {}, function(err, results){
+    if(err){
+      return res.status(500).send("SQL filter gone wrong", err); // 500 is internal server error
+    }
+
+    response.render('index', {
       title: 'dorothy jane wingrove',
       theme: 'style-one',
       links: {
@@ -76,8 +84,10 @@ app.get('/', function(request, response, next){
         twitter: "https://twitter.com/notthepoint",
         instagram: "http://instagram.com/dottiejane/",
         codepen: "http://codepen.io/dorothy/",
-      }
+      },
+      blogs: results
     });
+  });
 });
 
 // app.get('/feed', function(request, response, next){

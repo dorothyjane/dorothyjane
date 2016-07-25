@@ -276,9 +276,10 @@ html, body {
   height: 100%;
   position: relative; }
 
-body {
-  overflow: hidden; }
-
+/*body {
+    overflow: hidden;
+}
+*/
 h1, h2 {
   font-family: "Stalemate", sans-serif; }
 
@@ -295,7 +296,9 @@ h1 {
 h2 {
   font-size: 80px;
   text-shadow: 3px 3px #dbd361;
-  color: #50959f; }
+  color: #50959f;
+  text-align: left;
+  line-height: 1em; }
 
 h3, p, a {
   font-family: droid-sans, sans-serif; }
@@ -315,6 +318,8 @@ footer {
 
 .center-text {
   text-align: center; }
+  .center-text #blog {
+    text-align: left; }
 
 .full-height {
   height: 100%; }
@@ -360,17 +365,25 @@ div#blog, div#index {
   transition: transform 0.6s ease-in-out; }
 
 #blog {
-  background: #61A6B0; }
-  #blog a.back {
-    float: right;
-    text-shadow: 3px 3px #ff0000;
-    font-size: 3em;
-    line-height: 1em;
-    /*margin: 40px;*/
-    color: #dbcb34;
-    margin: 40px 30px; }
-    #blog a.back:hover {
-      color: #fff892; }
+  /*background: linear-gradient($blue 20px, #ddecee);*/
+  background: #ddecee;
+  overflow: visible;
+  height: 100%; }
+  #blog .topbar {
+    background: #61A6B0;
+    height: 70px; }
+    #blog .topbar a.back {
+      text-align: right;
+      text-shadow: 3px 3px #ff0000;
+      font-size: 3em;
+      line-height: 1em;
+      /*margin: 40px;*/
+      color: #dbcb34;
+      margin: 0 30px; }
+      #blog .topbar a.back:hover {
+        color: #fff892; }
+  #blog h3 {
+    margin-bottom: 50px; }
 
 a[id="index"]:target ~ .center-text div.panel {
   -webkit-transform: translateY(0px);
@@ -379,6 +392,21 @@ a[id="index"]:target ~ .center-text div.panel {
 a[id="blog"]:target ~ .center-text div.panel {
   -webkit-transform: translateY(-100vh);
   transform: translateY(-100vh); }
+
+.blogs {
+  margin: 40px 40px 0; }
+  .blogs h3, .blogs h4 {
+    font-size: 2em;
+    color: #448089; }
+  .blogs h4 {
+    font-size: 1.4em;
+    margin-top: 10px; }
+  .blogs .blog .block-1-5, .blogs .blog .block-4-5 {
+    margin: 5px;
+    padding: 15px 10px; }
+  .blogs .blog {
+    border-bottom: 1px solid #448089;
+    margin: 40px 0; }
 
 .languages {
   margin: 0 auto;

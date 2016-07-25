@@ -24,10 +24,18 @@ block content
 
   
     #blog.panel
-      a.back(href="#index")
-        back
-        i.fa.fa-arrow-circle-o-up
-      h2 a blog will appear here imminently
+      .topbar
+        a.back(href="#index")
+          back
+          i.fa.fa-arrow-circle-o-up
+      .blogs 
+        each blog in blogs
+          .blog
+            .block-1-5
+              h4= moment(blog.created_at).format('Do MMM YYYY')
+            .block-4-5
+              h3= blog.name
+              !=blog.body
 
 
   script.
