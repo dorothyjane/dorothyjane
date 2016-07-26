@@ -8,6 +8,12 @@ if blog
 else
   input#body(type="hidden" name="body")
 
+if blog
+  input(name='published_at', type='date', value=blog.published_at)
+else
+  input(name='published_at', type='date')
+
+
 div#toolbar
   select.ql-size
     option(value="10px") small

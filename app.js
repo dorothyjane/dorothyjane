@@ -69,7 +69,7 @@ app.get('/', function(request, response, next){
   // interally writehead, write, end.. express has wrapped it up for us
   //response.status(200).send("</h1>Welcome to DorothyJanes site.</h1><br/> It is currently under construction. Please come back soon.");
 
-  var query = "select * from blogs order by created_at"
+  var query = "select * from blogs where published_at is not null order by published_at"
 
   connection.query(query, {}, function(err, results){
     if(err){
