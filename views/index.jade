@@ -9,18 +9,19 @@ block content
   a#index
   a#blog
 
-  .center-text.full-height
-    #index.panel.central
-      h1= title
+  .main.full-height
+    #index.panel
+      .title 
+        h1= title
 
-      .mini-central
+      .social-links
         each link, name in links
           a.menu-item(href=link)
             i.fa.fa-2x(class="fa-#{name}")
 
       a.blog-link(href="#blog")
-        h3 read my blog
-          i.fa.fa-angle-double-down
+        read my blog
+        i.fa.fa-angle-double-down
 
   
     #blog.panel

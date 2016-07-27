@@ -73,7 +73,7 @@ app.get('/', function(request, response, next){
 
   connection.query(query, {}, function(err, results){
     if(err){
-      return res.status(500).send("SQL filter gone wrong", err); // 500 is internal server error
+      return response.status(500).send("SQL filter gone wrong", err); // 500 is internal server error
     }
 
     response.render('index', {
