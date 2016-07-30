@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "cd ./node_modules/minio && npm install && cd ../.."
+    "postinstall": "cd ./node_modules/minio && npm install && cd ../.."
   },
   "author": "dorothyjane",
   "license": "ISC",
