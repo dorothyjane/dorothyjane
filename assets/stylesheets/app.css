@@ -299,16 +299,17 @@ h2 {
   text-align: left;
   line-height: 1em; }
 
-h3, h4 {
+h3 {
   font-size: 2em;
   color: #448089; }
 
-h4 {
-  font-size: 1.4em;
+h5 {
+  font-size: 1em;
   margin-top: 10px; }
 
-h3, p, a {
-  font-family: droid-sans, sans-serif; }
+h3, p, a, h5, div {
+  font-family: droid-sans, sans-serif;
+  color: #448089; }
 
 a {
   text-decoration: none; }
@@ -378,29 +379,29 @@ div#blog, div#index {
   background: #E0ECEE;
   overflow: visible;
   height: 100%; }
-  #blog .topbar {
-    height: 70px; }
-    #blog .topbar a.back {
-      text-align: right;
-      text-shadow: 3px 3px #ff0000;
-      font-size: 3em;
-      line-height: 1em;
-      /*margin: 40px;*/
-      color: #dbcb34;
-      margin: 0 30px; }
-      #blog .topbar a.back:hover {
-        color: #fff892; }
+  #blog a.back {
+    float: right;
+    text-shadow: 3px 3px #F8F8F8;
+    font-size: 3em;
+    line-height: 1em;
+    color: #61A6B0;
+    margin: 20px 30px; }
+    #blog a.back:hover {
+      color: #DBCB34; }
   #blog h3 {
     margin-bottom: 50px; }
 
 .blogs {
-  margin: 40px 40px 0; }
-  .blogs .blog .block-1-5, .blogs .blog .block-4-5 {
-    margin: 5px;
-    padding: 15px 10px; }
+  padding: 0 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
   .blogs .blog {
     border-bottom: 1px solid #448089;
-    margin: 40px 0; }
+    padding: 15px 10px; }
+    .blogs .blog .body {
+      font-family: '';
+      color: #448089; }
 
 a[id="index"]:target ~ .main div.panel {
   -webkit-transform: translateY(0px);

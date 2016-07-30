@@ -34,18 +34,19 @@ h2 {
   line-height: 1em;
 }
 
-h3, h4 {
+h3 {
   font-size: 2em;
   color: $blue-darkest;
 }
 
-h4 {
-  font-size: 1.4em;
+h5 {
+  font-size: 1em;
   margin-top: 10px;
 }
 
-h3, p, a {
+h3, p, a, h5, div {
   font-family: droid-sans, sans-serif;
+  color: $blue-darkest;
 }
 
 a {
@@ -154,21 +155,17 @@ div#blog, div#index {
   overflow: visible;
   height: 100%;
 
-  .topbar {
-    height: 70px;
 
-    a.back {
-      text-align: right;
-      text-shadow: 3px 3px #ff0000;
-      font-size: 3em;
-      line-height: 1em;
-      /*margin: 40px;*/
-      color: #dbcb34;
-      margin: 0 30px;
+  a.back {
+    float: right;
+    text-shadow: 3px 3px $light-grey;
+    font-size: 3em;
+    line-height: 1em;
+    color: $blue;
+    margin: 20px 30px;
 
-      &:hover {
-        color: $yellow;
-      }
+    &:hover {
+      color: $musk-yellow;
     }
   }
 
@@ -178,16 +175,19 @@ div#blog, div#index {
 }
 
 .blogs {
-  margin: 40px 40px 0;
+  padding: 0 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
-  .blog .block-1-5, .blog .block-4-5 {
-    margin: 5px;
-    padding: 15px 10px;
-  }
 
   .blog {
     border-bottom: 1px solid $blue-darkest;
-    margin: 40px 0;
+    padding: 15px 10px;
+    .body {
+      font-family: '';
+      color: $blue-darkest;
+    }
   }
 }
 

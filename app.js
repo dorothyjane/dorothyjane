@@ -80,6 +80,7 @@ app.get('/', function(request, response, next){
       title: 'dorothy jane wingrove',
       theme: 'style-one',
       links: {
+        linkedin: "https://uk.linkedin.com/in/dorothy-wingrove-98171259",
         github: "https://github.com/notthepoint",
         twitter: "https://twitter.com/notthepoint",
         instagram: "http://instagram.com/dottiejane/",
