@@ -19,7 +19,7 @@
     "haml": "^0.4.3",
     "jade": "^1.9.0",
     "method-override": "^2.3.5",
-    "minio": "^2.0.1",
+    "minio": "https://github.com/notthepoint/minio-js.git#allow-non-us-buckets",
     "moment": "^2.14.1",
     "mysql": "^2.5.3",
     "passport": "^0.2.1",
