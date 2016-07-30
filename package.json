@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd ./node_modules/minio && NODE_ENV=development npm install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dorothyjane",
   "license": "ISC",
@@ -20,7 +19,7 @@
     "haml": "^0.4.3",
     "jade": "^1.9.0",
     "method-override": "^2.3.5",
-    "minio": "https://github.com/notthepoint/minio-js/tarball/80466374c6eded6c42e2edc5a34f4fe7587300a2",
+    "minio": "https://github.com/notthepoint/minio-js/tarball/93930a72040e37bca45c7685f28e72034a6fd096",
     "moment": "^2.14.1",
     "mysql": "^2.5.3 ",
     "node": "0.0.0",
