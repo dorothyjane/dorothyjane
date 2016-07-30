@@ -19,7 +19,7 @@
     "haml": "^0.4.3",
     "jade": "^1.9.0",
     "method-override": "^2.3.5",
-    "minio": "https://github.com/notthepoint/minio-js/tarball/93930a72040e37bca45c7685f28e72034a6fd096",
+    "minio": "https://github.com/notthepoint/minio-js/tarball/4eae1837481ef0f955782922e71254227d1cc4f5",
     "moment": "^2.14.1",
     "mysql": "^2.5.3 ",
     "node": "0.0.0",
