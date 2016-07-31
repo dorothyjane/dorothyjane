@@ -13,38 +13,6 @@ if blog
 else
   input(name='published_at', type='date')
 
-
-div#toolbar
-  select.ql-size
-    option(value="10px") small
-    option(value="14px") medium
-    option(value="18px") big
-    option(value="22px") biggest
-    option(value="25px") huge
-  button.ql-bold BOLD
-  button.ql-italic ITALIC
-  button.ql-strike STRIKE
-  button.ql-underline UNDERLINE
-  button.ql-link LINK
-  select.ql-color
-    option(value='#61A6B0')
-    option(value='#8ec0c7')
-    option(value='#78b3bb')
-    option(value='#50959f')
-    option(value='#448089')
-    option(value='#fff892')
-    option(value='#fffcd2')
-    option(value='#fffab2')
-    option(value='#dbd361')
-    option(value='#b0a839')
-    option(value='#e583a1')
-    option(value='#f8cdda')
-    option(value='#f0a8be')
-    option(value='#c45778')
-    option(value='#9d3353')
-  i.fa.fa-image
-    input(type="file" id="uploadImage")
-
 div#editor
   if blog
     !{blog.body}
@@ -53,19 +21,46 @@ button.submit(type='submit') Create
 
 
 script.
+  hljs.initHighlightingOnLoad();
+  hljs.configure({   // optionally configure hljs
+    languages: ['javascript', 'ruby', 'python', 'css', 'sass']
+  });
+
+  var toolbarOptions = [
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'font': [] }],
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block', 'quote'],
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'direction': 'rtl' }],                         // text direction
+    [{ 'align': [] }],
+
+
+    [{ 'color': ['#61A6B0','#8ec0c7','#78b3bb','#50959f','#448089','#fff892','#fffcd2','#fffab2','#dbd361','#b0a839','#e583a1','#f8cdda','#f0a8be','#c45778', '#9d3353'] }, { 'background': [] }],          // dropdown with defaults from theme
+    ['image', 'link'],
+
+    ['clean']                                         // remove formatting button
+  ];
+
   var configs = {
     theme: 'snow',
-    format: ['bold', 'italic', 'color', 'size', 'strike']
+    format: ['bold', 'italic', 'color', 'size', 'strike'],
+    modules: { syntax: true, toolbar: toolbarOptions }
   };
 
-  var quill = new Quill('#editor', configs);
-  quill.addModule('toolbar', { container: '#toolbar' });
 
+  var quill = new Quill('#editor', configs);
 
   var hiddenField = document.getElementById('body');
 
   quill.on('text-change', function(){
-    hiddenField.setAttribute("value", quill.getHTML());
+    var quillHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    hiddenField.setAttribute("value", quillHTML);
   });
 
   function getSignedRequest(file){
@@ -79,7 +74,7 @@ script.
           uploadFile(file, response.url);
         }
         else{
-          alert('Could not get signed URL.');
+          alert('Could not get signed URL. ');
         }
       }
     };
@@ -155,8 +150,8 @@ script.
   }
 
   (function(){
-    document.getElementById("uploadImage").addEventListener('change',function(){
-      var files = document.getElementById('uploadImage').files;
+    document.getElementsByClassName("ql-image")[0].addEventListener('change',function(){
+      var files = document.getElementsByClassName('ql-image')[0].files;
       var file = files[0];
       if(file == null){
         return alert('No file selected.');

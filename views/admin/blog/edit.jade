@@ -1,8 +1,11 @@
 extends ../layout.jade
 
 block content
+  link(href="//cdn.jsdelivr.net/highlight.js/9.5.0/styles/atelier-lakeside-light.min.css", rel="stylesheet")
+  script(src="//cdn.jsdelivr.net/highlight.js/9.5.0/highlight.min.js", type="text/javascript")
+
   script(src="/javascripts/quill.min.js")
-  link(rel="stylesheet", type="text/css", href="/stylesheets/quill.base.css")
+  link(rel="stylesheet", type="text/css", href="/stylesheets/quill.css")
   link(rel="stylesheet", type="text/css", href="/stylesheets/quill.snow.css")
 
 
