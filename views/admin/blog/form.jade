@@ -13,6 +13,9 @@ if blog
 else
   input(name='published_at', type='date')
 
+
+input(class="ql-image" type="file" name="image")
+
 div#editor
   if blog
     !{blog.body}
@@ -42,7 +45,7 @@ script.
 
 
     [{ 'color': ['#61A6B0','#8ec0c7','#78b3bb','#50959f','#448089','#fff892','#fffcd2','#fffab2','#dbd361','#b0a839','#e583a1','#f8cdda','#f0a8be','#c45778', '#9d3353'] }, { 'background': [] }],          // dropdown with defaults from theme
-    ['image', 'link'],
+    ['link'],
 
     ['clean']                                         // remove formatting button
   ];
@@ -58,9 +61,24 @@ script.
 
   var hiddenField = document.getElementById('body');
 
-  quill.on('text-change', function(){
+  quill.on('text-change', function(delta, olddelta, source){
+    updateValue();
+  });
+
+  var updateValue = function() {
     var quillHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
     hiddenField.setAttribute("value", quillHTML);
+  }
+
+  quill.on('selection-change', function(range, oldRange, source) {
+    var selection = quill.getContents(range.index,range.length+1);
+
+    if (selection.ops[0].insert.hasOwnProperty('image')) {
+
+      var selectedImage = document.getElementsByTagName('img')[0];
+
+      addImageSelectedState(selectedImage);
+    }
   });
 
   function getSignedRequest(file){
@@ -85,21 +103,13 @@ script.
     var xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
     xhr.onreadystatechange = function(){
+
       if(xhr.readyState === 4){
         if(xhr.status === 200){
 
-          var imageDiv = document.createElement('div');
-          imageDiv.className = 'image-wrapper';
-
-          var image = document.createElement('img');
-          image.src = signedRequest.split('?')[0];
-
-          var div = document.getElementsByClassName('ql-editor')[0];
-
-          imageDiv.appendChild(image);
+          quill.insertEmbed(0, 'image', signedRequest.split('?')[0]);
           
-          div.appendChild(imageDiv);
-          image.addEventListener('click', addImageSelectedState, false);
+          var images = document.getElementsByTagName('img');
 
         } else {
           alert('Could not upload file.');
@@ -109,29 +119,24 @@ script.
     xhr.send(file);
   }
 
-  function addImageSelectedState(e){
-    imageSelected = true;
-    e.stopPropagation();
+  function addImageSelectedState(image){
+    image.className += ' resizing-active';
 
-    var image = e.target;
-    var imageWrapper = e.target.parentElement;
-
-    imageWrapper.className += ' resizing-active';
-
-    imageWrapper.addEventListener('mousedown', dragEvent);
+    document.addEventListener('mousedown', dragEvent);
     document.addEventListener('mouseup', endImageSelectedState);
   }
 
   function dragEvent(e) {
     e.stopPropagation();
 
-    var image = e.target.children[0];
+    var image = document.getElementsByClassName('resizing-active')[0];
     var startingImageHeight = image.height;
     var mouseY = e.clientY;
 
     document.onmousemove = function(e) {
       var diff = e.clientY - mouseY;
       image.height = startingImageHeight + diff;
+      updateValue();
     }
   }
 
@@ -139,18 +144,18 @@ script.
     imageSelected = false;
     e.stopPropagation();
 
-    var image = e.target.children[0];
-    var imageWrapper = document.getElementsByClassName('resizing-active')[0];
+    var image = document.getElementsByClassName('resizing-active')[0];
 
-    imageWrapper.classList.remove('resizing-active');
+    image.classList.remove('resizing-active');
     document.onmousemove = null;
 
-    imageWrapper.removeEventListener('mousedown', dragEvent);
+    document.removeEventListener('mousedown', dragEvent);
     document.removeEventListener('mouseup', endImageSelectedState);
   }
 
   (function(){
     document.getElementsByClassName("ql-image")[0].addEventListener('change',function(){
+      console.log('added image');
       var files = document.getElementsByClassName('ql-image')[0].files;
       var file = files[0];
       if(file == null){
