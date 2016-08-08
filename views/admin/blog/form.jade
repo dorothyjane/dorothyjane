@@ -106,7 +106,7 @@ script.
 
       if(xhr.readyState === 4){
         if(xhr.status === 200){
-          var length = var length = quill.getLength();
+          var length = quill.getLength();
           quill.insertEmbed(length, 'image', signedRequest.split('?')[0]);
           
           var images = document.getElementsByTagName('img');
