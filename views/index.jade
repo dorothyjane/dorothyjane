@@ -44,6 +44,45 @@ block content
       document.getElementById('index').setAttribute("style","height:" +height+"px");
     }
 
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-82539201-1', 'auto');
+    ga('send', 'pageview');
+
+    var bloglink = document.getElementsByClassName('blog-link')[0];
+    bloglink.addEventListener('click', function(e){
+      console.log('blog click')
+      ga('send','event', 'blogclick');
+    });
+
+    var twitterlink = document.getElementsByClassName('fa-twitter')[0];
+    twitterlink.addEventListener('click', function(e){
+      ga('send','event', 'twitterclick');
+    });
+
+    var linkedin = document.getElementsByClassName('fa-linkedin')[0];
+    linkedin.addEventListener('click', function(e){
+      ga('send','event', 'linkedinclick');
+    });
+
+    var githublink = document.getElementsByClassName('fa-github')[0];
+    githublink.addEventListener('click', function(e){
+      ga('send','event', 'githubclick');
+    });
+
+    var instagramlink = document.getElementsByClassName('fa-instagram')[0];
+    instagramlink.addEventListener('click', function(e){
+      ga('send','event', 'instagramclick');
+    });
+
+    var codepenlink = document.getElementsByClassName('fa-codepen')[0];
+    document.addEventListener(codepenlink, function(e){
+      ga('send', 'codepenclick');
+    });
+
     window.onload = heightChange;
 
     window.onresize = heightChange;
