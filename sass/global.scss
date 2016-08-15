@@ -193,6 +193,11 @@ div#blog, div#index {
         padding: 5px 10px;
         border-radius: 2px;
       }
+
+      img {
+        max-width: 100%;
+        width: 100%;
+      }
     }
   }
 }

@@ -402,6 +402,13 @@ div#blog, div#index {
     .blogs .blog .body {
       font-family: '';
       color: #448089; }
+      .blogs .blog .body .ql-syntax {
+        background-color: #F8F8F8;
+        padding: 5px 10px;
+        border-radius: 2px; }
+      .blogs .blog .body img {
+        max-width: 100%;
+        width: 100%; }
 
 a[id="index"]:target ~ .main div.panel {
   -webkit-transform: translateY(0px);
@@ -447,15 +454,18 @@ a[id="blog"]:target ~ .main div.panel {
 @media screen and (max-width: 500px) {
   #index h1 {
     line-height: 0.8;
-    font-size: 150px;
+    font-size: 120px;
     text-shadow: 3px 3px #ff0000;
     z-index: 10;
     padding-top: 50px; }
 
   #index .social-links .menu-item {
-    padding: 30px 10px;
+    padding: 40px 5px;
     width: 1%;
-    font-size: 1.8em; }
+    font-size: 1.6em; }
+
+  .blogs {
+    padding: 0 10px; }
 
   a.blog-link {
     font-size: 3em;
