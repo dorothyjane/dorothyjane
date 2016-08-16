@@ -234,9 +234,15 @@ div#blog, div#index {
         ol li,
         ul,
         ul li {
-          list-style: lower-alpha;
           list-style-position: inside;
           margin-left: 10px;
+        }
+        ul, ul li {
+          list-style: circle;
+        }
+
+        ol, ol li {
+          list-style: decimal;
         }
 
         blockquote {

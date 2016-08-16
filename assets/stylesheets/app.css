@@ -431,9 +431,12 @@ div#blog, div#index {
       #blog .blogs .blog .body ol li,
       #blog .blogs .blog .body ul,
       #blog .blogs .blog .body ul li {
-        list-style: lower-alpha;
         list-style-position: inside;
         margin-left: 10px; }
+      #blog .blogs .blog .body ul, #blog .blogs .blog .body ul li {
+        list-style: circle; }
+      #blog .blogs .blog .body ol, #blog .blogs .blog .body ol li {
+        list-style: decimal; }
       #blog .blogs .blog .body blockquote {
         padding-left: 10px;
         border-left: 5px solid #F8F8F8; }
