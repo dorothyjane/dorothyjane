@@ -391,44 +391,46 @@ div#blog, div#index {
   #blog h3 {
     margin-bottom: 50px; }
 
-.blogs {
+#blog .blogs {
   padding: 0 100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column; }
-  .blogs .blog {
+  #blog .blogs .blog {
     border-bottom: 1px solid #448089;
     padding: 15px 10px; }
-    .blogs .blog .body {
+    #blog .blogs .blog .body {
       line-height: 1.1em;
       color: #448089;
       margin-top: 30px; }
-      .blogs .blog .body p, .blogs .blog .body h2, .blogs .blog .body h3, .blogs .blog .body h4 {
+      #blog .blogs .blog .body p, #blog .blogs .blog .body h2, #blog .blogs .blog .body h3, #blog .blogs .blog .body h4 {
         font-family: droid-sans, sans-serif; }
-      .blogs .blog .body h4 {
+      #blog .blogs .blog .body h4 {
         font-size: 1.3em; }
-      .blogs .blog .body h2 {
+      #blog .blogs .blog .body h2 {
         font-size: 2em; }
-      .blogs .blog .body .ql-size-small {
+      #blog .blogs .blog .body h3, #blog .blogs .blog .body h4 {
+        margin-bottom: 5px; }
+      #blog .blogs .blog .body h2 {
+        margin-bottom: 8px; }
+      #blog .blogs .blog .body .ql-size-small {
         font-size: 0.8em; }
-      .blogs .blog .body .ql-align-center {
+      #blog .blogs .blog .body .ql-align-center {
         text-align: center; }
-      .blogs .blog .body .ql-syntax {
+      #blog .blogs .blog .body .ql-syntax {
         background-color: #F8F8F8;
         padding: 5px 10px;
         border-radius: 2px; }
-      .blogs .blog .body img {
+      #blog .blogs .blog .body img {
         max-width: 100%;
         width: 100%; }
-      .blogs .blog .body ol,
-      .blogs .blog .body ol li,
-      .blogs .blog .body ul,
-      .blogs .blog .body ul li {
+      #blog .blogs .blog .body ol,
+      #blog .blogs .blog .body ol li,
+      #blog .blogs .blog .body ul,
+      #blog .blogs .blog .body ul li {
         list-style: lower-alpha;
         list-style-position: inside;
         margin-left: 10px; }
-      .blogs .blog .body h3 {
-        margin-bottom: 50px; }
 
 a[id="index"]:target ~ .main div.panel {
   -webkit-transform: translateY(0px);
