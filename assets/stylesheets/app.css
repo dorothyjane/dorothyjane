@@ -434,6 +434,9 @@ div#blog, div#index {
         list-style: lower-alpha;
         list-style-position: inside;
         margin-left: 10px; }
+      #blog .blogs .blog .body blockquote {
+        padding-left: 10px;
+        border-left: 5px solid #F8F8F8; }
 
 a[id="index"]:target ~ .main div.panel {
   -webkit-transform: translateY(0px);
