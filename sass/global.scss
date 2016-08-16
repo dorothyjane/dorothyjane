@@ -186,7 +186,8 @@ div#blog, div#index {
       border-bottom: 1px solid $blue-darkest;
       padding: 15px 10px;
       .body {
-        line-height: 1.1em;
+        font-size: 0.8em;
+        line-height: 1em;
 
         p, h2, h3, h4 {
           font-family: droid-sans, sans-serif;
@@ -200,14 +201,16 @@ div#blog, div#index {
 
         h3, h4 {
           margin-bottom: 5px;
+          margin-top: 10px;
         }
 
         h2 {
+          margin-top: 10px;
           margin-bottom: 8px;
         }
 
         .ql-size-small {
-          font-size: 0.8em;
+          font-size: 0.7em;
         }
 
         .ql-align-center {
