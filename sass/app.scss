@@ -1,157 +1,48 @@
-@import "variables";
-@import "avantgrid";
-@import "myform";
-@import "global";
-// @import "exploding-menu";
 
-// make it half round between hovers
-@include keyframes('half-round') {
-    0% { border-radius: 0%; height: 25px; }
-    60% { border-radius: 50%; height: 3px; }
-    100% { border-radius: 0%; height: 3px; }
+/* get font */
+@import url('https://fonts.googleapis.com/css?family=Scope+One');
+
+/* background */
+
+body {
+	background-color: #435066;
+	color: #a5d5ff;
+	font-family: 'Scope one', serif;
+
+	h1, h2, h3 {
+		font-weight: 200;
+	}
 }
 
-// make the heart beat + move them (left right bottom)
-@include keyframes('throb-1') {
-  0%{
-    transform: scale(1) translate3d(10px,-14px,0) rotate(-45deg);
-  }
-
-  35%{
-    transform: scale(1.1) translate3d(10px,-14px,0) rotate(-45deg);
-  }
-
-  100%{
-    transform: scale(1) translate3d(10px,-14px,0) rotate(-45deg);
-  }
-}
-@include keyframes('throb-2') {
-  0%{
-    transform: scale(1) translate3d(-10px, -14px,0) rotate(-45deg);
-  }
-  35%{
-    transform: scale(1.1) translate3d(-10px, -14px,0) rotate(-45deg);
-  }
-
-  100%{
-    transform: scale(1) translate3d(-10px, -14px,0) rotate(-45deg);
-  }
-}
-@include keyframes('throb-3') {
-  0%{
-    transform: scale(1) translate3d(0,-4px,0) rotate(45deg);
-  }
-  35%{
-    transform: scale(1.1) translate3d(0,-4px,0) rotate(45deg);
-  }
-  100%{
-    transform: scale(1) translate3d(0,-4px,0) rotate(45deg);
-  }
+.front {
+	padding: 30px 50px;
 }
 
-// the orbit
-@include keyframes(orbit) {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(360deg);
-  }
+h1 {
+	font-size: 4em;
 }
 
-
-// retro hover links
-.retro-link {
-  text-decoration: none;
-  @include outline(#aaa);
-  //transition: all 400ms ease-in-out;
+h2 {
+	font-size: 3em;
 }
 
-.retro-link {
-  text,
-  stop {
-    transition: all 350ms ease-in-out;
-  }
-  text {
-    text-transform: uppercase;
-    fill: url(#striped);
-    @include outline(#ccc);
-  }
-  &:hover text {
-    @include shade(text, #aaa, #333, 10, 135deg, true);
-  }
-
-  //animate gradient stop points
-  & stop {
-    stop-color: #fff;
-  }
-  &:hover stop {
-    stop-color: #fff;
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      stop-color: $pink-darkest;
-    }
-  }
+h3 {
+	font-size: 2em;
 }
 
+.blog-list {
+	text-align: right;
 
+	h2 {
+		margin-bottom: 0;
+	}
 
+	ul {
+		display: inline;
+		list-style: none;
 
-
-.orbit-wrapper {
-  visibility: hidden;
-  // position: relative;
-  // left: -15px;
-  // top: -15px;
-  margin-left: -75px;
-  margin-top: -20px;
-  @include animation('orbit 2s infinite linear');
-  width: 180px;
+		li {
+			font-size: 1.2em;
+		}
+	}
 }
-
-
-$size: 15px;
-$d-2-size: $size / 2;
-
-.orbit {
-  float:left;
-  width: $size;
-  height: $size;
-}
-
-.orbit i {
-  color: #fde74e;
-}
-
-.heart {
-  background: #e74c3c;
-  border-radius: 500% 500% 500% 0%;
-  //margin: $d-2-size;
-  transform: rotate(-45deg);
-  &:before {
-    content: '';
-    display: block;
-    background: #e74c3c;
-    width: $size;
-    height: $size;
-    border-radius: 500% 500% 500% 0%;
-    margin: $d-2-size;
-    position: absolute;
-    transform: rotate(0deg);
-  }
-  &:after {
-    content: '';
-    display: block;
-    background: #e74c3c;
-    z-index: -1;
-    width: $size;
-    height: $size;
-    border-radius: 500% 500% 500% 0%;
-    margin-left: $size/2;
-    margin-top: $size;
-    position: absolute;
-    transform: rotate(0deg) translateY(-$size/2)  translateX(-$size/2);
-    }
-}
-

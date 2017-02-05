@@ -1,41 +1,37 @@
 extends ./layout.jade
 
 block content
-  <!-- - var n = 0
-  while n < 4
-    .trailElement(id="trail_"+n)
-    - n ++
-  script(src='javascripts/mouse-trail.js') -->
   link(href="//cdn.jsdelivr.net/highlight.js/9.5.0/styles/atelier-lakeside-light.min.css", rel="stylesheet")
+
   a#index
   a#blog
 
-  .main.full-height
-    #index.panel
-      .title 
-        h1= title
+  .front
+    .intro
+      h1 hey theree
 
-      .social-links
-        each link, name in links
-          a.menu-item(href=link)
-            i.fa.fa-2x(class="fa-#{name}")
+      h3
+        = "i am a web developer"
+        br
+        = "i like to make all sorts"
+        br
+        = "i co-organise codebar Brighton"
+    
+    .blog-list
+      h2 blogs
+      ul
+        each blog in blogs
+          li= blog.name      
 
-      a.blog-link(href="#blog")
-        read my blog
-        i.fa.fa-angle-double-down
 
   
-    #blog.panel
-      a.back(href="#index")
-        back
-        i.fa.fa-arrow-circle-o-up
-      .blogs 
-        each blog in blogs
-          .blog
-            h5= moment(blog.created_at).format('Do MMM YYYY')
-            h3= blog.name
-            .body
-              !=blog.body
+  #blogs 
+    each blog in blogs
+      .blog
+        h5= moment(blog.created_at).format('Do MMM YYYY')
+        h3= blog.name
+        .body
+          !=blog.body
 
 
   script.
