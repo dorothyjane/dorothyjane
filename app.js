@@ -25,7 +25,7 @@ app.set('view engine', 'jade');
 // =================
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: '',
   resave: false,
   saveUninitialized: true
 }));
